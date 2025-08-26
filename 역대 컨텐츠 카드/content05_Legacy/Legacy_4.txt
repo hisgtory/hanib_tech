@@ -1,0 +1,26 @@
+Image Filename: Legacy_4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Question bubble: "Q. 레거시는 왜 쌓이나요?" (Q. Why does legacy accumulate?)
+- Number "1" (indicating the first reason).
+- Explanation: "생존이 제일 중요한 스타트업에서는 더 중요한 목표 달성을 위해 알면서도 레거시를 쌓기도 해요." (In startups where survival is paramount, legacy sometimes accumulates knowingly for the sake of achieving more critical goals.)
+- Character Hanib (sweating, stressed at laptop, behind a crumbling brick wall): "바쁘다 바빠.." (So busy, so busy..)
+- Caption at bottom: "(잘 못 된걸 알면서도 고칠 시간이 없는 환경..)" ((An environment where you know something is wrong but have no time to fix it..))
+
+Visual Description:
+- The character Hanib is depicted as stressed and overworked, trying to code while a brick wall (symbolizing accumulating legacy or problems) is behind them. Some bricks are askew or marked with '#', suggesting issues.
+- The background is yellow, but the main content area is white.
+
+Tone and Manner:
+- Realistic, empathetic towards the pressures of startup environments.
+- It explains a common reason for legacy accumulation – prioritizing immediate survival and goals over perfect code or systems.
+- The visual of the stressed character and the caption effectively convey the high-pressure, time-constrained reality of many startups.
+
+Storytelling Method:
+- This card begins to answer the "why" behind legacy systems.
+- It uses a relatable scenario (startup pressure) and a visual metaphor (stressed developer, crumbling wall) to explain the concept.
+- This is presented as the first point in a likely multi-part explanation.
+
+Overall Atmosphere:
+- Understanding, provides a practical perspective on why legacy isn't always due to negligence but often a result of pragmatic decisions under pressure.

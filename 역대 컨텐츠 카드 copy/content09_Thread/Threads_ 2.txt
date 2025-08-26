@@ -1,0 +1,21 @@
+Image Filename: Threads_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Threads"
+- Main text: "메타에서 트위터를 대체할 수 있는 텍스트 기반 플랫폼 '스레드'를 출시했어요" (Meta has launched 'Threads', a text-based platform that can replace Twitter.)
+
+Visual Description:
+- The background is light gray.
+- A line drawing of Mark Zuckerberg is on the right.
+- On the left are Meta's app icons: Instagram, Threads (with a "NEW" yellow tag), Facebook, WhatsApp, and Messenger.
+
+Tone and Manner:
+- Informative, news-oriented.
+- It announces the launch of Threads and positions it as a Twitter competitor from Meta.
+
+Storytelling Method:
+- This card provides factual information about a new product launch.
+- The inclusion of Zuckerberg's image and other Meta app icons visually links Threads to the Meta ecosystem.
+
+Overall Atmosphere:
+- Newsy, aims to inform the audience about a significant development in the social media landscape.

@@ -1,0 +1,24 @@
+Image Filename: Git_ 9.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git"
+- Title bubble (black with white text): "Merge"
+- Main explanation:
+  - "approve를 받은 Pull Request는 해당 변경사항을 main 브랜치에 반영할 수 있어요." (A Pull Request that has received approval can have its changes reflected in the main branch.)
+  - "서로 다른 두 브랜치를 한쪽으로 병합하여 커밋 히스토리를 합치는 것을 Merge 라고 해요." (Combining two different branches into one and merging their commit histories is called Merge.) "커밋 히스토리" (commit history) and "Merge" are highlighted in yellow.
+- Character Hanib (at laptop, giving a thumbs up) is shown in the bottom right.
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card explains the "Merge" operation in Git.
+
+Tone and Manner:
+- Informative, defines a key Git operation.
+- The explanation is clear and concise.
+
+Storytelling Method:
+- This card defines "Merge" as the final step in integrating approved changes from a Pull Request into the main branch.
+- It builds upon the previously explained concepts of Branch, Pull Request, and Approve.
+
+Overall Atmosphere:
+- Educational, clearly explains the concept of merging branches in Git.

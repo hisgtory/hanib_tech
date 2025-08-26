@@ -1,0 +1,23 @@
+Image Filename: Refactoring_1.png
+
+Visible Text:
+- Top left: "Hanib_tech"
+- Large white text with "리팩터링" (Refactoring) in yellow: "이번 스프린트 동안은 리팩터링을 좀 할게요" (I'll be doing some refactoring during this sprint.)
+- Speech bubble 1 (yellow): "네! 근데 저희 그런 기능이 있었나요?" (Okay! But did we have such a feature?)
+- Speech bubble 2 (white): "..?? 리팩터링 한다니깐요..?" (..?? I said I'm doing refactoring..?)
+- Speech bubble 3 (yellow): "..네??" (..Yes?? / ..Huh??)
+
+Visual Description:
+- The background is dark gray.
+- The layout uses a large title statement followed by a confusing chat exchange, depicted with speech bubbles.
+
+Tone and Manner:
+- Humorous, highlighting a common miscommunication or misunderstanding in tech teams, especially around the concept of refactoring.
+- The confusion in the chat bubbles is relatable to situations where team members might not fully grasp what refactoring entails or why it's being done.
+
+Storytelling Method:
+- This is an introductory card for a series on "Refactoring."
+- It uses a short, comedic dialogue to set up the topic and hint at the potential confusion surrounding it. This engages the audience by presenting a familiar or amusing scenario.
+
+Overall Atmosphere:
+- Light-hearted, aims to introduce a technical topic by first acknowledging the communication challenges or lack of clarity that can surround it in a team setting.

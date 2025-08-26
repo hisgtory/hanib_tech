@@ -1,0 +1,26 @@
+Image Filename: HTTP_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "HTTP status code"
+- Main title: "우리가 알고있는 404, 500 등의 코드를 HTTP Status Code라고 해요" (The codes we know like 404, 500, etc., are called HTTP Status Codes.)
+- Explanation: "우리는 HTTP를 통해 서버와 통신을 해요. 통신을 하며 서버는 클라이언트에게 데이터와 status code를 함께 전달해 줘요." (We communicate with servers via HTTP. During communication, the server sends data and a status code together to the client.)
+- Diagram:
+  - Character N (cat-like, at laptop) on the left.
+  - Server icon on the right.
+  - Arrow from N to Server labeled "요청" (Request), with example text "게시글, 이미지 등등 데이터" (Post, image, etc. data).
+  - Arrow from Server to N labeled "응답" (Response), with example text "데이터 + status code: 200" (Data + status code: 200).
+
+Visual Description:
+- The background is light gray.
+- The card defines HTTP Status Codes and illustrates their role in client-server communication using a diagram similar to the one used for explaining "Client" (`content08_Front,Client/Front,Client_ 2.png`).
+
+Tone and Manner:
+- Informative, foundational.
+- Clearly explains what HTTP Status Codes are and where they fit into the communication process.
+
+Storytelling Method:
+- This card builds upon the previous introduction to HTTP status codes.
+- It uses a familiar diagram (client-server request/response) to show that status codes are part of the server's response.
+
+Overall Atmosphere:
+- Educational, aims to clarify the purpose and context of HTTP status codes.

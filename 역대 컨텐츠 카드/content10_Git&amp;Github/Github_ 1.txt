@@ -1,0 +1,20 @@
+Image Filename: Github_ 1.png
+
+Visible Text:
+- Top left: "Hanib_tech"
+- Main text (white, with "Git" and "GitHub" in yellow): "Git과 GitHub이 다른 거라구요?" (Are Git and GitHub different?)
+
+Visual Description:
+- The background is dark gray.
+- The Git logo (orange square with branching icon) and the GitHub logo (Octocat silhouette in a white circle) are displayed prominently above the text.
+
+Tone and Manner:
+- Inquisitive, aims to clarify a common point of confusion for beginners.
+- The direct question format is typical for the channel.
+
+Storytelling Method:
+- This is an introductory card for a new topic: the difference between Git and GitHub.
+- It uses the official logos and a direct question to immediately establish the subject.
+
+Overall Atmosphere:
+- Educational, designed to address a fundamental concept in version control and software development collaboration. The dark background with yellow and white text is a recurring style.

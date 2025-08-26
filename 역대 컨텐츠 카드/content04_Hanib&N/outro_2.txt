@@ -1,0 +1,22 @@
+Image Filename: outro_2.png
+
+Visible Text:
+- Top: "Hanib_tech"
+- Main text: "궁금했던 테크 정보, 대신 물어봐 드릴게요" (The tech info you were curious about, I'll ask for you).
+
+Visual Description:
+- The cat-like character "N" is shown with large, curious eyes, holding a notepad and pen, seemingly ready to take notes or ask questions. There are "sparkle" or "emphasis" marks (++) near its head.
+- The background is bright yellow.
+
+Tone and Manner:
+- Helpful, proactive, and engaging.
+- The character N appears eager and ready to assist the audience by "asking questions on their behalf."
+- The tone is friendly and positions the channel as a proxy for users who might be hesitant to ask "silly" questions.
+
+Storytelling Method:
+- This is an outro card, likely used at the end of content featuring the "Hanib & N" characters or content focused on answering user-submitted questions.
+- It reinforces the role of character N as the inquisitive one who helps bridge the knowledge gap for the audience.
+- It serves as a call to action, encouraging users to submit their tech-related questions.
+
+Overall Atmosphere:
+- Approachable, supportive, and community-focused. It aims to foster interaction and make users feel comfortable seeking help.

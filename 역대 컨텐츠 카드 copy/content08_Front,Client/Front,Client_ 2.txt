@@ -1,0 +1,27 @@
+Image Filename: Front,Client_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Front-End&Client"
+- Introductory text: "먼저 클라이언트에 대해 알려드릴게요!" (First, I'll tell you about the client!)
+- Main definition: "클라이언트란 서버에 요청을 보내는 모든 주체를 뜻해요" (A client refers to any entity that sends a request to a server.)
+- Diagram:
+  - Icon of a desktop and smartphone labeled "Client" (yellow box).
+  - Icon of a server stack labeled "Server" (gray box).
+  - Arrow from Client to Server labeled "요청" (Request), with example text "1번 게시글 정보 보내주세요" (Please send post number 1 info).
+  - Arrow from Server to Client labeled "응답" (Response), with example text "게시글 데이터, 이미지 파일, 댓글 데이터" (Post data, image file, comment data).
+
+Visual Description:
+- The background is light gray.
+- The card clearly defines "Client" using text and a simple request-response diagram between a client (desktop/mobile) and a server.
+
+Tone and Manner:
+- Informative, clear, and foundational.
+- The diagram effectively visualizes the client-server interaction model.
+
+Storytelling Method:
+- This card starts by defining "Client."
+- It uses a visual diagram to illustrate the core function of a client: making requests to a server and receiving responses.
+- The example request ("send post info") and response ("post data, image, comments") are concrete and easy to understand.
+
+Overall Atmosphere:
+- Educational, aims to provide a clear definition and visual representation of what a client is in a client-server architecture.

@@ -1,0 +1,24 @@
+Image Filename: Legacy_7.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Question bubble: "Q. 구체적으로 어떤 상황이 있나요?" (Q. Specifically, what kind of situations are there?)
+- Scenario 1 (Yellow header): "새로운 기능이 기존 정책과 충돌하는 경우" (When a new feature conflicts with existing policy)
+  - "상품마다 한 명만 결제 가능한 중고 거래 플랫폼에서 복수 유저가 결제 가능한 기능을 추가하려 할 때 기존 코드가 레거시가 돼요." (In a used goods trading platform where only one person can pay per item, when trying to add a feature allowing multiple users to pay, the existing code becomes legacy.)
+- Scenario 2 (Yellow header): "서비스가 성장함에 따라 규모가 커진 경우" (When the service grows and its scale increases)
+  - "1,000만 명에게 푸시 알림을 발송해야 할 때, 기존의 100명에게 푸시 알림을 발송하던 방식은 레거시가 돼요. 시간이 훨씬 오래 걸리거든요." (When you need to send push notifications to 10 million people, the old method used for sending to 100 people becomes legacy. It takes much longer.)
+
+Visual Description:
+- The card presents two specific scenarios where legacy issues arise. Each scenario is in a white box with a yellow header.
+- The background is yellow. No characters are depicted.
+
+Tone and Manner:
+- Practical, illustrative, and concrete.
+- It provides clear, real-world examples that developers or product people can easily understand and relate to.
+
+Storytelling Method:
+- This card continues the Q&A format by providing specific examples of how legacy situations manifest.
+- It uses "before and after" or "small scale vs. large scale" comparisons to highlight how existing systems become legacy due to new requirements or growth.
+
+Overall Atmosphere:
+- Educational, focused on providing actionable insights and clarifying the abstract concept of legacy through tangible examples.

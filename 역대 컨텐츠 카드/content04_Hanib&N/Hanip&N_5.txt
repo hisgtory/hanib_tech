@@ -1,0 +1,28 @@
+Image Filename: Hanip&N_5.png
+
+Visible Text:
+- Top: "Hanib_tech", "Hanib&N"
+- Small text: "그후,," (After that,,)
+- Speech bubble 1 (from N): "API가 일부분만 나왔다는 건 어떤 상황인가요?" (What does it mean that only part of the API is out?)
+- Speech bubble 2 (from N): "개발자분들이 푸시하고 PR..? 그거 하고 있다고 하면 디자이너는 어떤 걸 하고 있어야 하나요?" (When developers push and do PR..? what should designers be doing then?)
+- Speech bubble 3 (from N): "프로토콜? 리팩토링이 뭐예요?" (Protocol? What's refactoring?)
+- Small speech bubble from Hanib (at laptop): "ㅎㅎ" (heh heh / sigh)
+- Bottom text: "한입이와 N은 잘 지낼 수 있을까..!" (Will Hanib-ie and N get along well..!)
+
+Visual Description:
+- The character "Hanib" (round-headed) is shown at a laptop, looking slightly overwhelmed or pensive, with a small "ㅎㅎ" speech bubble.
+- Three black speech bubbles dominate the center, representing questions from character "N".
+- The background is bright yellow, consistent with the channel's branding.
+
+Tone and Manner:
+- Humorous and relatable, depicting a common scenario where a junior team member (N) bombards a more experienced one (Hanib) with numerous questions.
+- Hanib's "ㅎㅎ" suggests a mix of amusement, slight exasperation, or thoughtful consideration.
+- N's questions show eagerness to learn but also a lack of foundational knowledge on various topics.
+
+Storytelling Method:
+- This card continues the narrative of the two characters, Hanib and N.
+- It uses a question-and-answer format (implied, as Hanib is the one receiving the questions) to introduce multiple technical terms (API status, Push, PR, Designer's role, Protocol, Refactoring).
+- The question at the bottom ("Will Hanib-ie and N get along well..!") acts as a narrative hook, encouraging viewers to follow their story and, by extension, the educational content.
+
+Overall Atmosphere:
+- Light-hearted, educational, engaging through character interaction. It aims to make learning about complex tech topics less intimidating by framing them within a relatable workplace dynamic.

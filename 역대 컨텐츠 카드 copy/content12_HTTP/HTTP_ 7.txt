@@ -1,0 +1,26 @@
+Image Filename: HTTP_ 7.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "HTTP status code"
+- Title bubble (black with white text): "404 Not Found ❌" (Cross mark emoji added)
+- Main explanation:
+  - "URL이 잘못되어 존재하지 않는 페이지거나 리소스가 삭제되어 없는 경우예요." (It's when the URL is incorrect and the page doesn't exist, or the resource has been deleted and is not there.)
+  - "조회 권한이 없는 페이지에 접속을 시도한 경우 서비스가 페이지의 존재 여부를 들키지 않기 위해 404 Page Not Found를 응답하기도 해요." (If you try to access a page you don't have permission to view, the service might respond with 404 Page Not Found to hide the page's existence.)
+- Example UI element: A screenshot of a Notion "Page not found" error. It shows the Notion logo, "페이지를 찾을 수 없음" (Page not found), "이 페이지가 존재하지 않거나 페이지에 대한 액세스 권한이 없습니다." (This page does not exist or you do not have access to the page.), and a button "내 콘텐츠로 돌아가기" (Return to my content).
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card explains the "404 Not Found" HTTP status code.
+
+Tone and Manner:
+- Informative, explains a very common error.
+- It also provides a nuanced point about 404 sometimes being used for security/privacy reasons instead of 403.
+
+Storytelling Method:
+- This card focuses on the widely recognized "404 Not Found" error.
+- It explains the common reasons for it (wrong URL, deleted resource).
+- It adds an interesting detail about its use as a security measure to obscure the existence of a page when a user lacks permission (as an alternative to 403 Forbidden).
+- The Notion error page screenshot is a good example of how a 404 error is presented to users.
+
+Overall Atmosphere:
+- Educational, demystifies a common web error and provides insight into its varied uses.

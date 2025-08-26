@@ -1,0 +1,28 @@
+Image Filename: Refactoring_2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Refactoring"
+- Main title: "리팩터링은 코드를 개선하는 작업이에요" (Refactoring is the work of improving code.)
+- Explanation: "그동안 누적된 “레거시”를 청산하는 작업이지요. 기능을 변경하지 않고 코드의 내부 구조를 개선하는 것이 목표예요." (It's the work of clearing out accumulated "legacy." The goal is to improve the internal structure of the code without changing its functionality.)
+- Visual metaphor:
+  - Left side: Two "Hanib" characters struggling to clean a messy keyboard (representing messy code) with a trash bag, chocolate bar, and cookie nearby.
+  - Right side: The same keyboard, now clean and sparkling, with the chocolate and cookie neatly placed. An arrow points from left to right.
+- Additional text at bottom: "+ 이전 사용 방식을 지원하지 않는 구버전 라이브러리를 최신화하는 것도 리팩터링이라고 할 수 있어요." (+ Updating old version libraries that don't support previous usage methods can also be called refactoring.)
+
+Visual Description:
+- The background is light gray.
+- The core of the card is a before-and-after visual metaphor using a keyboard. The "before" state shows a cluttered, dirty keyboard with characters struggling to clean it. The "after" state shows a clean, organized, sparkling keyboard.
+
+Tone and Manner:
+- Clear, illustrative, and practical.
+- The visual metaphor is very effective in conveying the essence of refactoring – cleaning up and organizing existing code without changing what it does externally.
+- The language is straightforward and defines refactoring in relation to "legacy" (a previously explained concept).
+
+Storytelling Method:
+- This card defines "Refactoring" using both text and a strong visual analogy.
+- It connects refactoring to the concept of legacy, building on previous content.
+- It clarifies that refactoring is about internal improvement, not external feature changes.
+- The additional point about updating libraries broadens the definition.
+
+Overall Atmosphere:
+- Educational, uses a simple yet powerful visual to make an abstract concept (refactoring) tangible and understandable.

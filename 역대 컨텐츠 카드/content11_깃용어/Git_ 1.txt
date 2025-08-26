@@ -1,0 +1,25 @@
+Image Filename: Git_ 1.png
+
+Visible Text:
+- Top left: "Hanib_tech"
+- Chat bubbles (dark gray with white text):
+  - "좀 전에 A 브랜치 PR 올렸어요👀" (I just submitted a PR for branch A 👀)
+  - "리뷰 달았어요 확인해주세요👍" (I left a review, please check 👍)
+  - "수정해서 푸시했어요" (I've made changes and pushed)
+  - "어프루브 했어요 머지 가시죵" (Approved. Let's merge)
+- Main title (large black text at bottom): "Git 용어 정리" (Git Terminology Summary)
+
+Visual Description:
+- The background is bright yellow.
+- The card uses a series of chat bubbles to simulate a typical developer conversation involving Git/GitHub workflow terms like "branch," "PR" (Pull Request), "review," "push," "approve," and "merge."
+
+Tone and Manner:
+- Relatable, practical, and introductory.
+- It uses a common workplace scenario to introduce the topic of Git terminology.
+
+Storytelling Method:
+- This is an introductory card for a series explaining common Git terms.
+- The chat dialogue serves as a hook, showcasing real-world usage of the terms that will be explained.
+
+Overall Atmosphere:
+- Educational, aims to demystify common Git jargon by first showing it in a familiar context. The bright yellow background is consistent with other introductory cards.

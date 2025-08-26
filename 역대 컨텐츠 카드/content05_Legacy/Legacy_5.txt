@@ -1,0 +1,22 @@
+Image Filename: Legacy_5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Number "2" (indicating the second reason).
+- Explanation: "여러 기능들을 테스트하다가 복잡도가 높아지고 어느 순간 감당하기 힘들어지기도 해요." (While testing various features, complexity increases, and at some point, it can become difficult to manage.)
+- Character Hanib (looking overwhelmed, standing on a shaky, poorly constructed platform of bricks): "...아니 어쩌다가..." (...How on earth did it come to this...)
+
+Visual Description:
+- The character Hanib is shown standing precariously on a platform made of mismatched and unstable-looking bricks, symbolizing a complex and fragile system. Squiggly lines around Hanib indicate instability or stress.
+- The background is yellow, with the main content on a white rounded rectangle.
+
+Tone and Manner:
+- Relatable, empathetic. It describes a common scenario in software development where complexity grows organically and can become unmanageable.
+- The character's expression and the visual metaphor of the unstable platform effectively convey the feeling of being overwhelmed by accumulated complexity.
+
+Storytelling Method:
+- This card continues explaining why legacy accumulates, focusing on the natural increase in complexity as features are added and tested.
+- The visual storytelling is strong, with the character's predicament illustrating the point made in the text.
+
+Overall Atmosphere:
+- Highlights the challenges of managing growing complexity in software projects, a key factor in the creation of legacy systems.

@@ -1,0 +1,21 @@
+Image Filename: Front,Back_ 6.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Front-End&Back-End"
+- Explanation: "서버란 Java, Python, Node.js 등의 프로그래밍 언어로 작성된 코드가 실행 중인 컴퓨터예요. 우리가 영화에서 한 번쯤 본 이 곳은 수천 대의 서버로 구성된 데이터 센터예요!" (A server is a computer running code written in programming languages like Java, Python, Node.js, etc. This place we've all seen in movies is a data center composed of thousands of servers!)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- A stock photo of a server room/data center with rows of server racks is prominently displayed.
+
+Tone and Manner:
+- Informative, slightly awe-inspiring (referencing "thousands of servers").
+- It connects the abstract concept of a "server" to a visual that many people might recognize from popular culture (movies).
+
+Storytelling Method:
+- This card defines what a server is in the context of backend development.
+- It uses a relatable reference (server rooms in movies) to make the concept more tangible.
+- It also lists common backend programming languages.
+
+Overall Atmosphere:
+- Educational, aims to demystify the physical infrastructure behind backend services.

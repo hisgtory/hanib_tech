@@ -1,0 +1,27 @@
+Image Filename: Git_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git"
+- Main title: "개발자들은 이렇게 협업해요!" (This is how developers collaborate!)
+- Numbered steps in rounded white boxes with yellow number circles:
+  1.  "브랜치 생성" (Create Branch)
+  2.  "코드 작성" (Write Code)
+      - Below this, "커밋" (Commit) and "푸시" (Push) in yellow boxes with a two-way arrow between them.
+  3.  "풀 리퀘스트" (Pull Request)
+  4.  "머지" (Merge)
+
+Visual Description:
+- The background is light gray.
+- The card outlines a typical Git workflow for collaboration in a step-by-step flowchart style.
+
+Tone and Manner:
+- Informative, process-oriented.
+- It simplifies a common development workflow into clear, sequential steps.
+
+Storytelling Method:
+- This card visually represents a standard Git collaboration workflow.
+- It lists key actions (branch, code, commit/push, pull request, merge) in the order they typically occur.
+- This sets the stage for explaining each of these terms in more detail in subsequent cards.
+
+Overall Atmosphere:
+- Educational, provides a high-level overview of a common Git workflow, making it easier to understand the context of individual Git commands/terms.

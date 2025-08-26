@@ -1,0 +1,26 @@
+Image Filename: Threads_ 3.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Threads"
+- Introductory text: "일론 머스크가 트위터를 인수한 뒤 트위터에는 많은 일들이 있었지요." (After Elon Musk acquired Twitter, many things happened to Twitter.)
+- Boxed text (listing changes at Twitter):
+  - "블루 뱃지 유료화" (Paid Blue Badge)
+  - "무료 사용자 컨텐츠 소비 개수 제한" (Limit on content consumption for free users)
+  - "대량 해고" (Mass layoffs)
+  - "..." (ellipsis suggesting more)
+- Concluding text: "일론 머스크의 이런 독단적인 행동에 불만을 가진 사람들이 트위터라는 브랜드를 떠나기 시작했어요." (People dissatisfied with Elon Musk's arbitrary actions began to leave the Twitter brand.)
+
+Visual Description:
+- The background is light gray.
+- The card focuses on text, outlining the context (changes at Twitter under Elon Musk) that created an opportunity for a competitor like Threads.
+
+Tone and Manner:
+- Informative, analytical, and slightly critical of the changes at Twitter.
+- It sets a narrative of user dissatisfaction creating a market opening.
+
+Storytelling Method:
+- This card provides background information to explain the timing and potential appeal of Threads.
+- It lists specific controversial changes made to Twitter, framing them as reasons for users to seek alternatives.
+
+Overall Atmosphere:
+- Provides context for the launch of Threads by highlighting perceived issues with Twitter, thereby explaining the market opportunity Meta is trying to capture.

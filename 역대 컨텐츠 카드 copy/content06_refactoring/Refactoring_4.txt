@@ -1,0 +1,25 @@
+Image Filename: Refactoring_4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Refactoring"
+- Question bubble: "Q. 신규 기능 개발할 때마다 조금씩 개선하면 안되는 건가요?" (Q. Can't we just improve it little by little each time we develop a new feature?)
+- Answer part 1: "네 맞아요! 보통 개발자들은 코드를 수정할 때마다 아쉬운 부분들을 조금씩 같이 수정해요." (Yes, that's right! Usually, developers fix unsatisfactory parts little by little whenever they modify code.)
+- Transition word: "하지만" (However) in a gray box.
+- Answer part 2: "수정해야하는 규모가 크면 시간도 오래 걸리고 리팩터링 후 별도 테스트가 필요해서 이런 경우에는 일정을 따로 할애해서 작업해요." (If the scale of modification is large, it takes a long time, and separate testing is needed after refactoring, so in such cases, a separate schedule is allocated for the work.)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The layout is text-based, using a Q&A format. No characters are depicted.
+
+Tone and Manner:
+- Practical, realistic, and informative.
+- It addresses a common question about refactoring (why not just do it incrementally) and provides a balanced answer.
+- It acknowledges that small improvements are often made, but larger refactoring efforts require dedicated time.
+
+Storytelling Method:
+- This card continues the Q&A style to delve deeper into the practicalities of refactoring.
+- It explains the difference between minor, ongoing code improvements and larger, dedicated refactoring tasks.
+- It highlights the reasons (scale, time, testing needs) why significant refactoring is often a planned, separate activity.
+
+Overall Atmosphere:
+- Educational, provides a nuanced understanding of when and how refactoring is typically approached in software development projects.

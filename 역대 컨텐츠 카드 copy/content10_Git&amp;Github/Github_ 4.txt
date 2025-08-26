@@ -1,0 +1,25 @@
+Image Filename: Github_ 4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git&Github"
+- Screenshot: A detailed view of a Git commit in an IDE. It highlights:
+  - "파일의 변경 내역" (File's change history) pointing to the diff view.
+  - "변경된 파일" (Changed file) pointing to the file name.
+  - "메세지" (Message) pointing to the commit message.
+  - "해시" (Hash) pointing to the commit hash.
+- Explanation: "Commit은 해시(커밋마다 가지는 고유한 ID), 메세지, 파일들의 변경 내역, 이전 커밋의 해시 등의 값으로 구성되어 있어요." (A Commit is composed of values such as a hash (unique ID for each commit), message, file change history, hash of the previous commit, etc.) The terms "해시", "메세지", "파일들의 변경 내역", "이전 커밋의 해시" are highlighted in yellow boxes.
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card breaks down the components of a Git commit, using an annotated screenshot of a Git client.
+
+Tone and Manner:
+- Detailed, informative.
+- It dissects a commit to explain its constituent parts.
+
+Storytelling Method:
+- This card provides a more in-depth explanation of what a "commit" (introduced in the previous card) actually contains.
+- It uses a labeled screenshot to visually identify each component of a commit (hash, message, diff, parent commit hash).
+
+Overall Atmosphere:
+- Educational, aims to give a clearer understanding of the structure and information stored within a Git commit.

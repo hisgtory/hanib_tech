@@ -1,0 +1,21 @@
+Image Filename: ITnews_ 5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "IT News"
+- Main title: "샘 알트먼, 3일 만에 재취업 성공" (Sam Altman succeeds in getting rehired in 3 days)
+- Body text: "오늘 20일, Microsoft의 CEO 사티아 나델라가 샘 알트만과 그렉 브록먼이 MS의 고급 AI 연구팀을 이끌 것이라는 트위터를 통해서 밝혔어요. 알트만은 “the mission continues”라고 리트윗하며 Open AI에서의 행보를 이어가겠다는 의지를 밝혔죠." (Today, the 20th, Microsoft CEO Satya Nadella announced via Twitter that Sam Altman and Greg Brockman will lead MS's advanced AI research team. Altman retweeted "the mission continues," revealing his intention to continue his work from OpenAI.)
+- Screenshot: A tweet from Sam Altman (@sama) saying "the mission continues", which is a retweet of Satya Nadella's (@satyanadella) tweet announcing Altman and Brockman joining Microsoft. Nadella's tweet mentions commitment to their partnership with OpenAI and looking forward to getting to know Emmett (presumably Emmett Shear, interim CEO of OpenAI at the time).
+
+Visual Description:
+- The background is light gray.
+- The card reports on the rapid development of Sam Altman being hired by Microsoft after his dismissal from OpenAI.
+
+Tone and Manner:
+- News reporting, factual, highlighting a quick turn of events.
+
+Storytelling Method:
+- This card provides an update to the ongoing OpenAI saga.
+- It uses screenshots of tweets from key figures (Altman and Nadella) as primary sources.
+
+Overall Atmosphere:
+- Conveys the fast-paced nature of the tech industry and the significance of the individuals involved, showing a major new development in the story.

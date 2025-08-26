@@ -1,0 +1,22 @@
+Image Filename: NSM_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "NSM"
+- Main title: "북극성 지표란?" (What is a North Star Metric?)
+- Explanation: "프로덕트의 핵심 가치를 가장 잘 나타내는 중요한 지표로, 회사나 조직의 장기적인 성공과 성장을 가이드 해요. 프로덕트, 마케팅, 영업 등 모든 팀이 하나의 목표 아래 제품을 개선해요. 조직 내의 모든 결정과 전략이 하나의 가장 중요한 목표에 수렴하도록 하는 것이죠." (It's an important metric that best represents the core value of a product, guiding the long-term success and growth of a company or organization. All teams, including product, marketing, sales, etc., improve the product under one goal. It's about making all decisions and strategies within the organization converge on one most important goal.)
+
+Visual Description:
+- The background is light gray.
+- Characters N and Hanib are shown looking up at a sparkling star in the distance (over some hills), visually reinforcing the "North Star" concept.
+
+Tone and Manner:
+- Informative, conceptual.
+- Explains the definition and purpose of a North Star Metric.
+
+Storytelling Method:
+- This card defines the North Star Metric.
+- It emphasizes its role in aligning all teams towards a single, crucial goal that reflects core product value and guides long-term success.
+- The visual of the characters looking towards a guiding star complements the textual explanation.
+
+Overall Atmosphere:
+- Educational, clearly defines a key business/product strategy concept.

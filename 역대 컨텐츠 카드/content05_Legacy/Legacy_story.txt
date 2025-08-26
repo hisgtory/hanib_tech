@@ -1,0 +1,26 @@
+Image Filename: Legacy_story.png
+
+Visible Text:
+- Large text, circled in yellow: "레거시가 뭐예요?" (What is Legacy?)
+- Smaller text below:
+  - "레거시 때문에 고통받는 개발자를 보신 적이 있나요?" (Have you ever seen a developer suffering because of legacy?)
+  - "개발자들의 골칫거리 레거시😭" (Developers' headache, legacy 😭)
+  - "한입테크에서 알려드릴게요" (Hanib Tech will let you know)
+- Channel logo (spoon, "tech" pill, fork) at the bottom.
+
+Visual Description:
+- The character "Hanib" is shown walking away, leaving footprints, identical to the visual in `Legacy_1.png`.
+- The entire image has a bright yellow background. This image is formatted for a vertical story (like Instagram Stories).
+
+Tone and Manner:
+- Engaging, empathetic, and problem-oriented.
+- It directly addresses a pain point for developers ("suffering," "headache").
+- Positions "Hanib Tech" as the solution provider or explainer for this common issue.
+
+Storytelling Method:
+- This appears to be a promotional image for an Instagram Story or a series of posts about "Legacy."
+- It uses a hook question ("Have you ever seen...") to draw the audience in.
+- It clearly states the topic and promises an explanation from the channel.
+
+Overall Atmosphere:
+- Aims to capture attention quickly, highlight a relevant problem for the target audience (IT professionals/developers), and drive engagement by promising valuable information. The vertical format suggests it's designed for mobile-first consumption, likely on Instagram Stories.

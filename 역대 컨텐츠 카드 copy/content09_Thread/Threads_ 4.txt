@@ -1,0 +1,23 @@
+Image Filename: Threads_ 4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Threads"
+- Main title: "페이스북, 인스타그램, 왓츠앱을 보유한 SNS 강자 메타는 이 기회를 놓치지 않았어요" (Meta, the SNS powerhouse that owns Facebook, Instagram, and WhatsApp, did not miss this opportunity.)
+- Explanation: "5월에 메타가 텍스트 기반 인스타그램을 준비한다며 스레드 UI 일부가 유출되어 트위터 상에서 화제가 되기도 했죠." (In May, as Meta was said to be preparing a text-based Instagram, parts of the Threads UI were leaked and became a hot topic on Twitter.)
+- Screenshots: The image includes several screenshots. One appears to be a tweet from Akash Gupta (@aakashg0) about "BREAKING: Meta is releasing a Twitter competitor." and showing leaked slides/UI mockups of Threads. Other smaller screenshots also show UI elements of the Threads app.
+
+Visual Description:
+- The background is light gray.
+- The card combines explanatory text with visual evidence (screenshots of leaks/announcements) to build its narrative.
+
+Tone and Manner:
+- Informative, analytical, providing a timeline/narrative of Threads' emergence.
+- It highlights Meta's strategic move to capitalize on Twitter's perceived weaknesses.
+
+Storytelling Method:
+- This card continues the story of Threads' launch by detailing how Meta seized the opportunity.
+- It references real-world events (leaks, Twitter discussions) to make the narrative more compelling and credible.
+- The screenshots serve as supporting evidence for the text.
+
+Overall Atmosphere:
+- Provides a more in-depth look at the strategic context and early signs of Threads' development, positioning it as a calculated move by Meta.

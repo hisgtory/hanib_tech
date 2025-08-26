@@ -1,0 +1,25 @@
+Image Filename: Legacy_9.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Main text: "저 또한 과거의 내가 작성한 코드에 매일 괴롭힘당하고 있기도 하구요..(›´-`‹)" (I too am tormented daily by the code my past self wrote..(›´-`‹))
+- Below this, on the left: "과거의 한입" (Past Hanib) with an arrow pointing to a drawing of a pig-like character frantically typing on a laptop, with smoke/steam coming off it.
+- On the right, a meme image (from the movie Interstellar, the scene where Cooper is in the Tesseract surrounded by bookshelves) with the caption: "안돼.. 그만둬!!!" (No.. Stop!!!)
+
+Visual Description:
+- The card humorously depicts the ongoing struggle with one's own past code.
+- The "Past Hanib" character is drawn as a frantic, possibly less skilled version (pig-like, contrasting with the usual round-headed Hanib).
+- The Interstellar meme is used effectively to represent the current self's despair or warning to their past self.
+- The background is yellow, with the main content on a white rounded rectangle that has a light gray bottom section.
+
+Tone and Manner:
+- Highly relatable, humorous, and self-deprecating.
+- The use of the (›´-`‹) emoticon and the Interstellar meme adds to the comedic effect and resonates with internet culture.
+- It normalizes the experience of finding one's own past work challenging or cringeworthy.
+
+Storytelling Method:
+- This card uses humor and a popular meme to illustrate the ongoing impact of legacy code, even when it's self-inflicted.
+- It personifies "Past Hanib" as a separate, somewhat chaotic entity, adding to the comedic narrative.
+
+Overall Atmosphere:
+- Funny and empathetic, creating a shared experience with the audience about the trials of dealing with old code. It reinforces the idea that even experienced developers face these challenges.

@@ -1,0 +1,23 @@
+Image Filename: ITnews_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "IT News"
+- Main title: "Chat GPT의 개발사 Open AI CEO 샘 알트먼 해임" (Sam Altman, CEO of OpenAI, developer of ChatGPT, fired)
+- Body text: "지난 17일 Chat GPT의 개발사 Open AI 이사회가 CEO 샘 알트먼을 해임했어요. 대 AI 시대를 열고 여전히 선두에서 빠르게 앞서가는 기업의 경영진 교체가 너무 순식간에 일어나서 많은 논란이 되고 있지요." (On the 17th, the board of OpenAI, developer of ChatGPT, fired CEO Sam Altman. The management change in a company that opened the great AI era and is still rapidly leading at the forefront happened so suddenly, causing much controversy.)
+- Character Hanib (at laptop) with a speech bubble: "애플의 스티브 잡스 해고가 떠오르네요👀" (This reminds me of Steve Jobs' dismissal from Apple 👀)
+
+Visual Description:
+- The background is light gray, with a darker gray banner at the bottom.
+- The card provides more details about the OpenAI news.
+
+Tone and Manner:
+- Informative, analytical.
+- It highlights the surprising nature of the event and draws a historical parallel (Steve Jobs).
+
+Storytelling Method:
+- This card elaborates on the news introduced in the previous card.
+- It provides more context about the significance of the event.
+- The comparison to Steve Jobs' situation adds a layer of historical perspective and implies the potential magnitude of this event.
+
+Overall Atmosphere:
+- News reporting with a touch of analysis and historical comparison, aiming to help the audience understand the gravity of the situation.

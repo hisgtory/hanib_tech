@@ -1,0 +1,26 @@
+Image Filename: Github_ 5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git&Github"
+- Title bubble (black with white text): "GitHub이란 ☁️" (What is GitHub ☁️) (Cloud emoji suggests cloud service)
+- Explanation: "GitHub은 개발자들마다 서로 다른 커밋 히스토리를 싱크하는 클라우드예요. 개발자는 push를 통해서 추가된 버전을 업로드할 수 있고," (GitHub is a cloud service that syncs different commit histories among developers. Developers can upload added versions through push,)
+- Diagram:
+  - Top row: GitHub logo (Octocat) followed by a timeline of commits: "첫 커밋 hi.txt" (First commit hi.txt) -> "오타 수정 hi.txt" (Typo fix hi.txt) -> "기획안 업데이트 2023/plan" (Plan update 2023/plan - highlighted with sparkles).
+  - Bottom row: Character Hanib at a laptop, followed by a similar timeline of local commits.
+  - A yellow "PUSH" box with an upward arrow connects the "기획안 업데이트 2023/plan" from Hanib's local commits to the GitHub timeline.
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card explains GitHub's role as a cloud service for syncing Git repositories, using a diagram to show a local developer (Hanib) pushing changes to a remote GitHub repository.
+
+Tone and Manner:
+- Informative, clearly differentiates GitHub from Git (introduced earlier).
+- The diagram effectively visualizes the concept of "pushing" local changes to a remote repository.
+
+Storytelling Method:
+- This card defines GitHub and its relationship to Git.
+- It explains that GitHub is a hosting service for Git repositories, facilitating collaboration and synchronization.
+- The visual shows a local commit history being synchronized with a remote (GitHub) history via a "push."
+
+Overall Atmosphere:
+- Educational, clarifies the role of GitHub as a platform built around Git for collaborative development and remote storage of code history.

@@ -1,0 +1,26 @@
+Image Filename: ITnews_ 4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "IT News"
+- Main text:
+  - "해고 사유는 '샘 알트먼의 일관성 없고 솔직하지 않은 의사소통'이라고 하는데요." (The reason for dismissal is said to be 'Sam Altman's inconsistent and not candid communication.')
+  - "표면적 이유일 뿐이고 사실 진짜 이유는 AI의 빠른 발전을 우려한 인공지능 비관론자들이 알트만과 그렉 브록먼을 비롯한 인공지능 낙관론자들을 견제하고자 해임한 것이 아니냐는 이야기가 나오고 있어요." (It's said to be a superficial reason, and the real reason might be that AI pessimists, concerned about the rapid development of AI, dismissed Altman and Greg Brockman, who are AI optimists, to keep them in check.)
+  - "인공지능의 개발 속도와 안정성 등에 있어서 샘 알트만과 갈등이 많았던 일리야 수츠케버가 이번 해임을 주도했기 때문이죠." (This is because Ilya Sutskever, who had many conflicts with Sam Altman regarding the development speed and stability of AI, led this dismissal.)
+  - "Open AI가 공격적인 신제품 출시를 위해 안전 연구에 소홀하다는 직원들의 목소리도 있었어요." (There were also voices from employees that OpenAI was neglecting safety research for aggressive new product launches.)
+- Character Hanib (at laptop, looking thoughtful) with a speech bubble showing "..."
+
+Visual Description:
+- The background is light gray, with a darker gray banner at the bottom.
+- The card delves into the alleged reasons and speculations behind Sam Altman's dismissal.
+
+Tone and Manner:
+- Analytical, speculative, investigative.
+- It presents both the official reason and rumored underlying causes, suggesting a deeper conflict within OpenAI.
+
+Storytelling Method:
+- This card explores the "why" behind the OpenAI leadership change.
+- It contrasts the official explanation with theories about a power struggle between "AI pessimists/safety-focused" individuals (like Ilya Sutskever) and "AI optimists/fast-development advocates" (like Altman and Brockman).
+- It also mentions internal concerns about safety research being neglected.
+
+Overall Atmosphere:
+- Provides a deeper dive into the complexities and internal dynamics that might have led to the controversial decision, encouraging critical thinking about the event.

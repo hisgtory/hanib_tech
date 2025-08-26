@@ -1,0 +1,24 @@
+Image Filename: Front,Back_ 4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Front-End&Back-End"
+- Left side: A JSON object representing data (id, images, author, text, like_count).
+- Right side: A screenshot of an Instagram post (specifically, the `Refactoring_1.png` image from `content06_refactoring` being displayed as an Instagram post).
+- An arrow points from the JSON data to the Instagram post UI.
+- Caption: "프론트엔드를 통해서 유저는 서버와 쉽게 상호작용 할 수 있어요." (Through the frontend, users can easily interact with the server.)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- This card visually demonstrates how backend data (JSON) is transformed by the frontend into a user-friendly interface (Instagram post).
+
+Tone and Manner:
+- Illustrative, practical.
+- It clearly shows the relationship between raw data and its visual presentation.
+
+Storytelling Method:
+- This card provides a concrete example of the frontend's role.
+- It uses a "data to UI" transformation visual to explain how users interact with server data via the frontend.
+- The use of a previous content piece (the refactoring card) as the example in the UI is a nice touch of self-reference.
+
+Overall Atmosphere:
+- Educational, helps to demystify how data from a server becomes a visually appealing and interactive user experience.

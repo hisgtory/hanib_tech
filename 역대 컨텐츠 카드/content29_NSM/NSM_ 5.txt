@@ -1,0 +1,22 @@
+Image Filename: NSM_ 5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "NSM"
+- Title bubble (black with white text): "북극성 지표를 정할 때 주의할 점들" (Points to be careful about when setting a North Star Metric)
+- Point 3 (yellow number circle): "매출, 신규 유저 수와 같이 마케팅의 영향을 많이 받는 지표는 피하는 것이 좋아요." (It's good to avoid metrics heavily influenced by marketing, such as sales or number of new users.)
+- Point 4 (yellow number circle): "서비스의 생애 주기나 시장의 변화에 따라 서비스에 가장 중요한 북극성 지표는 달라질 수 있고, 달라져야 해요." (The most important North Star Metric for a service can and should change according to the service's lifecycle or market changes.)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card continues listing key considerations for defining a North Star Metric.
+
+Tone and Manner:
+- Advisory, strategic.
+- Provides further practical advice on selecting and evolving a North Star Metric.
+
+Storytelling Method:
+- This card continues the list of points from `NSM_ 4.png`.
+- It advises against metrics easily skewed by marketing and emphasizes that NSMs are not static and should evolve with the product/market.
+
+Overall Atmosphere:
+- Educational, offers more nuanced guidance on the dynamic nature of North Star Metrics and potential pitfalls to avoid.

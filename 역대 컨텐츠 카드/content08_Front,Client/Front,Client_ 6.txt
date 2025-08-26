@@ -1,0 +1,25 @@
+Image Filename: Front,Client_ 6.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Front-End&Client"
+- Question bubble (black with yellow text): "Q. 그렇다면 클라이언트 개발자와 프론트엔드 개발자는 어떻게 다른가요?" (Q. Then, how are client developers and frontend developers different?)
+- Explanation: "일반적으로 앱 개발자를 클라이언트 개발자, 웹 개발자를 웹 프론트엔드 개발자라고 불러요." (Generally, app developers are called client developers, and web developers are called web frontend developers.)
+- Visual: An icon of a desktop monitor and a smartphone in the center.
+  - Text to the left of the monitor: "웹 프론트엔드 개발자" (Web frontend developer) with a small monitor icon.
+  - Text to the right of the smartphone: "클라이언트 개발자" (Client developer) with a small smartphone icon.
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card distinguishes between "client developer" (often referring to app developers) and "web frontend developer."
+- The icons visually associate web frontend with desktop/web and client development more broadly with mobile apps in this context.
+
+Tone and Manner:
+- Clarifying, provides a common distinction used in the industry.
+- It addresses a specific nuance in job titles and roles.
+
+Storytelling Method:
+- This card uses a Q&A format to differentiate between two closely related developer roles.
+- It explains that while "frontend" is a general term for the user-facing part, "client developer" is often used specifically for native app (e.g., mobile app) developers, whereas "web frontend developer" is more specific to web technologies.
+
+Overall Atmosphere:
+- Educational, aims to clarify industry-specific jargon and role distinctions.

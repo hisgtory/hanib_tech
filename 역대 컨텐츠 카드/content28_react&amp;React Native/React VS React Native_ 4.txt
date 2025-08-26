@@ -1,0 +1,22 @@
+Image Filename: React VS React Native_ 4.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "React VS React Native"
+- Title bubble (black with yellow text): "React Native를 사용하여 만들어진 앱" (Apps made using React Native)
+- Logos of apps: Discord, Tesla, Pinterest, Microsoft Office, PUMA, and an ellipsis (...) suggesting more.
+- Caption at bottom: "Toss의 일부 서비스들도 RN을 사용하여 개발했다고 해요." (It's said that some of Toss's services were also developed using RN (React Native).)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card showcases well-known apps built with React Native to demonstrate its real-world applicability and success.
+
+Tone and Manner:
+- Illustrative, provides social proof.
+- By showing popular apps, it lends credibility to React Native as a viable technology for app development.
+
+Storytelling Method:
+- This card provides concrete examples of React Native's usage.
+- Listing recognizable brands helps the audience understand the capability and adoption of the framework.
+
+Overall Atmosphere:
+- Educational, aims to build confidence in React Native by showcasing its use in popular, large-scale applications.

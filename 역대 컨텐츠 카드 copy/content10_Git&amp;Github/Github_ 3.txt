@@ -1,0 +1,23 @@
+Image Filename: Github_ 3.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git&Github"
+- Title bubble (black with white text): "Git이란 👀" (What is Git 👀)
+- Screenshot: A Git log view from an IDE (likely IntelliJ IDEA or a similar JetBrains product). It shows a list of commits, with one commit highlighted: "한입테크의 첫번째 게시글" (Hanib Tech's first post), and the word "Commit" in a yellow box pointing to this highlighted entry.
+- Explanation: "Git은 프로젝트를 구성하는 수많은 파일들을 평면적인 파일과 폴더의 집합이 아닌 변경사항의 연속으로 관리할 수 있게 해줘요. 이미지 한 줄 한 줄의 변경사항을 commit이라고 불러요." (Git allows you to manage the numerous files that make up a project not as a flat collection of files and folders, but as a sequence of changes. Each line of change in the image is called a commit.)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card uses a screenshot of a real Git tool to illustrate the concept of commits.
+
+Tone and Manner:
+- Informative, defines a core Git concept ("commit").
+- It explains Git's fundamental approach to managing files as a series of changes rather than just static files.
+
+Storytelling Method:
+- This card defines Git and introduces the concept of a "commit."
+- It uses a visual from a development environment to make the explanation more concrete.
+- The text clarifies that commits represent individual changes or snapshots in the project's history.
+
+Overall Atmosphere:
+- Educational, aims to explain the basic functionality and terminology of Git.

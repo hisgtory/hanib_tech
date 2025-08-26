@@ -1,0 +1,27 @@
+Image Filename: Threads_ 5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Threads"
+- Title bubble (black with yellow text): "출시 5일 만에 가입자 1억명을 돌파했대요!" (It's said to have surpassed 100 million subscribers in just 5 days since launch!)
+- Main text:
+  - "가입자의 증가 속도가 Chat GPT보다 빠른 속도라고 하는데요👀" (The subscriber growth rate is said to be faster than Chat GPT's 👀)
+  - "인스타그램 계정으로 쉽게 가입할 수 있고, 팔로잉했던 유저들을 한번에 팔로우할 수 있어서 User Acquisition Cost가 정말 낮고, Activation Rate는 높은 것도 이유 중에 하나일 것 같아요." (Being able to easily sign up with an Instagram account and follow users you were already following all at once seems to be one of the reasons for the really low User Acquisition Cost and high Activation Rate.)
+- Footer definitions:
+  - "\*User Acquisition: 유저 획득" (User Acquisition: Acquiring users)
+  - "\*User Activation: 유저 활성화" (User Activation: Activating users)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card is text-focused, highlighting impressive statistics about Threads' launch.
+
+Tone and Manner:
+- Informative, analytical, impressed.
+- It highlights the rapid success of Threads' launch and offers plausible reasons for it, using business/marketing metrics (User Acquisition Cost, Activation Rate).
+
+Storytelling Method:
+- This card focuses on the initial impact and success metrics of Threads.
+- It provides data points (100 million users in 5 days, faster growth than ChatGPT) to emphasize the scale of the launch.
+- It analyzes key factors contributing to this success, such as leveraging the existing Instagram user base and features.
+
+Overall Atmosphere:
+- Discusses the business and growth aspects of a new tech product, providing insights into its successful launch strategy.

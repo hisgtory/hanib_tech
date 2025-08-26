@@ -1,0 +1,27 @@
+Image Filename: HTTP_ 9.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "HTTP status code"
+- Main title: "설명하지 못한 코드가 아직 많이 남아있어요!" (There are still many codes I haven't explained!)
+- Explanation:
+  - "하지만 이런 코드들은 프로토콜에 명시되어 있는 것일 뿐, 모든 코드를 다 사용하지는 않아요." (However, these codes are just specified in the protocol; not all codes are used.)
+  - "개발자들 간의 협의를 통해 사용할 코드를 결정하기 때문이에요." (This is because developers decide which codes to use through consultation.)
+  - "오늘은 그중 가장 흔히 사용되는 응답코드들을 다뤄봤어요." (Today, we covered the most commonly used response codes among them.)
+- Character Hanib (at laptop) with a speech bubble: "우리팀은 200, 404 만 사용할까요? ^^" (Does our team only use 200 and 404? ^^)
+
+Visual Description:
+- The background is light gray, with a yellow bottom banner.
+- The card serves as a concluding remark for the HTTP status code series.
+
+Tone and Manner:
+- Informative, managing expectations.
+- It acknowledges that not all status codes were covered and explains that teams often decide on a subset to use.
+- The character's question is a bit rhetorical and playful.
+
+Storytelling Method:
+- This card wraps up the series on HTTP status codes.
+- It clarifies that while many codes exist, not all are commonly used in practice.
+- It implies that the series focused on the most essential ones.
+
+Overall Atmosphere:
+- Educational, provides a practical perspective on the usage of HTTP status codes in real-world development.

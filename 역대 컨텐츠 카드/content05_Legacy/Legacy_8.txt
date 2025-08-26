@@ -1,0 +1,24 @@
+Image Filename: Legacy_8.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Question bubble (black): "Q. 그럼 레거시는 없을 수 없겠군요?" (Q. So, legacy is unavoidable then?)
+- Answer bubble (yellow, from Hanib): "네 맞아요🥹" (Yes, that's right 🥹)
+- Character Hanib (at laptop, looking content or resigned, with steam/smoke rising from the laptop).
+- Main text below character: "저도 주니어 때는 과거의 개발자를 많이 욕했지만 이제는 그들만의 사정이 있었다는 걸 어느 정도 이해해요. (당시에는 최선의 방법으로 했을 거라 믿고싶어요)" (When I was a junior, I used to criticize past developers a lot, but now I understand to some extent that they had their own circumstances. (I want to believe they did it the best way they could at the time)).
+
+Visual Description:
+- Character Hanib is at a laptop that seems to be working hard (steam/smoke). Hanib has a slightly smiling, accepting expression.
+- The background is yellow, with the main content on a white rounded rectangle.
+
+Tone and Manner:
+- Reflective, mature, and empathetic.
+- It conveys a sense of acceptance that legacy is an inherent part of software development.
+- The personal anecdote from Hanib (criticizing past developers as a junior, but now understanding their constraints) adds a layer of wisdom and experience. The emoji 🥹 (face holding back tears) in the answer bubble adds a touch of knowing empathy.
+
+Storytelling Method:
+- This card uses a Q&A format to arrive at a key conclusion about legacy systems.
+- Hanib's reflection on their own journey from a critical junior to an understanding senior developer provides a narrative arc and a lesson in empathy.
+
+Overall Atmosphere:
+- Conveys a deeper understanding of the software development lifecycle and the inevitability of legacy. It encourages a more nuanced and empathetic view of past work and the developers who created it.

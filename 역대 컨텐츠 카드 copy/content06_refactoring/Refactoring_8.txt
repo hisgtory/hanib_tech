@@ -1,0 +1,24 @@
+Image Filename: Refactoring_8.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Refactoring"
+- Main title: "우리가 방을 몰아서 치우듯(?) 코드도 정리하는 시간이 필요해요" (Just like we deep clean our rooms (?), code also needs time to be organized.) The "(?)" suggests a slightly humorous or questioning tone about the analogy.
+- Explanation: "당장의 성과가 부족해보여도 장기적인 관점에서 조직을 위해 꼭 필요해요." (Even if immediate results seem lacking, it's essential for the organization from a long-term perspective.)
+- Character Hanib (waving, looking friendly and encouraging) with a dark gray speech bubble: "동료가 정확한 동기와 목표를 가지고 리팩터링 기간을 제안한다면 적극 지지해주세요!" (If a colleague proposes a refactoring period with clear motivation and goals, please actively support them!)
+
+Visual Description:
+- The background is light gray.
+- The character Hanib is shown waving encouragingly.
+
+Tone and Manner:
+- Encouraging, supportive, and advocates for refactoring.
+- It uses an analogy (cleaning a room) to make the concept of refactoring relatable.
+- It emphasizes the long-term benefits and calls for team support for refactoring initiatives.
+
+Storytelling Method:
+- This card serves as a concluding thought or call to action for the refactoring series.
+- It reinforces the importance of refactoring, even if it doesn't show immediate, tangible results.
+- It encourages a supportive team culture towards refactoring efforts.
+
+Overall Atmosphere:
+- Positive, advocates for good software development practices and teamwork. It aims to persuade the audience of the value of refactoring.

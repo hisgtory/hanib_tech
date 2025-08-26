@@ -1,0 +1,21 @@
+Image Filename: outro.png (located in content12_HTTP)
+
+Visible Text:
+- Top: "Hanib_tech" (in yellow)
+- Main slogan: "나만 모르고 있던 테크 정보, 한 입에 쏙!" (Tech information only I didn't know, in one bite!) (in white)
+- Channel logo (spoon, "tech" pill, fork) in white below the slogan.
+- Footer text: "궁금했던 응답 코드가 있다면 댓글로 물어봐 주세요 👀" (If there are any response codes you were curious about, please ask in the comments 👀) (in smaller white text).
+
+Visual Description:
+- This is a variation of the standard outro card. It features a black background, the channel name in yellow, and the slogan and logo in white.
+- The call to action in the footer is specific to the topic of HTTP response codes.
+
+Tone and Manner:
+- Consistent with the channel's branding: approachable, friendly, and encouraging.
+- The specific call to action ("If there are any response codes you were curious about...") is tailored to the preceding content series.
+
+Storytelling Method:
+- This card serves as a brand marker and a topic-specific call to action at the end of the HTTP status code series.
+
+Overall Atmosphere:
+- Familiar, reinforces brand identity, and encourages topic-specific engagement.

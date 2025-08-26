@@ -1,0 +1,26 @@
+Image Filename: Front,Back_ 5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Front-End&Back-End"
+- Title bubble (black with yellow text): "백엔드 Back-End"
+- Explanation: "Front-End의 뒤에서 데이터를 저장, 가공, 제공하는 서버를 Back-End라고 해요." (The server that stores, processes, and provides data behind the Front-End is called Back-End.)
+- Dialogue:
+  - Character N (cat-like, at laptop): "123번 게시글 데이터 보내주세요!" (Please send the data for post number 123!)
+  - Character Hanib (round-headed, holding folders labeled "게시글" (Post), "유저" (User), "댓글" (Comment)): "네! 바로 보내드릴게요" (Okay! I'll send it right away)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card focuses on defining and illustrating the backend.
+- The visual shows character N (representing the frontend/user request) asking for data, and character Hanib (representing the backend) providing it from organized data stores (folders).
+
+Tone and Manner:
+- Informative, clear, and uses a simple interaction to explain a concept.
+- The character dialogue makes the backend's role (data provision) easy to understand.
+
+Storytelling Method:
+- This card elaborates on the "Backend" concept, complementing the previous card on "Frontend."
+- It uses a request-response interaction between the characters to demonstrate how the backend serves data to the frontend.
+- The folders Hanib holds ("Post," "User," "Comment") visually represent different types of data managed by the backend.
+
+Overall Atmosphere:
+- Educational, effectively simplifies the role of the backend in a client-server architecture.

@@ -1,0 +1,27 @@
+Image Filename: Git_ 8.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git"
+- Title bubble (black with white text): "Pull Request"
+- Main explanation: "“이제 main 브랜치에 적용해도 괜찮겠다” 싶으면 동료 개발자들이 approve를 해주어요." ("If it seems okay to apply to the main branch now," fellow developers will approve it.) "approve" is highlighted in yellow.
+- Visual: A simplified GitHub Pull Request UI section.
+  - Timeline on the left:
+    - "junior_n added 2 commits on Jul 31, 2023" (with a commit icon)
+    - "hanib_tech approved these changes on Jul 31, 2023" (with a yellow checkmark icon)
+    - "hanib_tech merged commit 012a34b into master on Jul 31, 2023" (with a merge icon)
+  - "Reviewers" box on the right with a yellow header, listing "hanib_tech", "junior_n" (highlighted), and "dooib_it".
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card illustrates the "approve" step within a Pull Request workflow, using a mock-up of a GitHub-like interface.
+
+Tone and Manner:
+- Informative, process-oriented.
+- Focuses on the approval stage of a code review.
+
+Storytelling Method:
+- This card continues the explanation of the Pull Request lifecycle.
+- It uses a visual representation of a PR's event timeline (commits added, approved, merged) and the reviewers involved to make the process clear.
+
+Overall Atmosphere:
+- Educational, clearly shows a key step in collaborative coding where changes are reviewed and approved before being integrated.

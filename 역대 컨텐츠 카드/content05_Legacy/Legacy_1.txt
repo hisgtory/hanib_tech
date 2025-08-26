@@ -1,0 +1,21 @@
+Image Filename: Legacy_1.png
+
+Visible Text:
+- Top left: "Hanib_tech"
+- Main text at bottom: "레거시가 뭐예요?" (What is Legacy?), with "레거시" (Legacy) circled in yellow.
+
+Visual Description:
+- The character "Hanib" (the round-headed, knowledgeable one) is shown walking away, leaving footprints. This visually represents the idea of something "left behind" or "old," which ties into the concept of legacy systems.
+- The background is bright yellow.
+
+Tone and Manner:
+- Inquisitive, introductory.
+- The visual of the character walking away and leaving footprints is a clever and subtle way to hint at the meaning of "legacy" before it's explicitly defined.
+- The direct question "What is Legacy?" is typical of the channel's style of tackling tech terms.
+
+Storytelling Method:
+- This is the introductory card for a new topic: Legacy systems.
+- It uses a visual metaphor (footprints) and a direct question to engage the audience and set the stage for an explanation.
+
+Overall Atmosphere:
+- Clean, visually engaging, and sets a clear learning objective for the upcoming content series.

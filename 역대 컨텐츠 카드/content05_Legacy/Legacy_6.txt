@@ -1,0 +1,22 @@
+Image Filename: Legacy_6.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Number "3" (indicating the third reason).
+- Explanation: "상황이 바뀌거나 개발자의 역량이 성장함에 따라 당시에는 몰랐던 레거시가 발견되기도 하구요." (As situations change or a developer's skills grow, legacy that wasn't recognized at the time might be discovered.)
+- Character Hanib (at laptop, looking frustrated/shocked): A speech bubble with grawlixes "!@#$@–!" indicating frustration. Another thought bubble: "이거 누가 한거야!! ...나네ㅎ ;" (Who did this!! ...Oh, it was me heh ;).
+
+Visual Description:
+- The character Hanib is shown at a laptop with a shocked or frustrated expression, realizing they are the source of the legacy code they've encountered.
+- The background is yellow, with the main content on a white rounded rectangle.
+
+Tone and Manner:
+- Humorous, self-deprecating, and highly relatable to developers.
+- It captures the common experience of developers encountering old code (sometimes their own) that now seems problematic due to changed circumstances or their own improved understanding.
+
+Storytelling Method:
+- This card presents another reason for legacy accumulation: evolving standards, changing requirements, or personal skill growth that makes past work seem outdated or flawed.
+- The humor comes from the character's realization that they are criticizing their own past work, a common "aha!" (or "oops!") moment for developers.
+
+Overall Atmosphere:
+- Light-hearted yet insightful, illustrating a nuanced aspect of how legacy code comes to be and how developers' perspectives on their own work can change over time.

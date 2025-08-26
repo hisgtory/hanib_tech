@@ -1,0 +1,25 @@
+Image Filename: Legacy_3.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Question bubble: "Q. 음,, 아직 잘 모르겠어요!" (Q. Hmm,, I still don't quite get it!)
+- Explanation: "레거시는 '기술 부채'라고도 한다고 조금 전 말씀드렸죠? 때로는 과거에 행했던 작업이 부채가 되어 현시점에 청구되는 경우가 있어요." (I mentioned a moment ago that legacy is also called 'technical debt', right? Sometimes, work done in the past becomes debt and is 'billed' in the present.)
+- Example 1 (PM): "ex 1. PM이라면" - "과거에 만든 정책들이 새롭게 구현하려는 기능에 제약이 되는 경우, 과거의 정책이 레거시가 되어요." (If policies made in the past restrict newly implemented features, those past policies become legacy.)
+- Example 2 (Designer): "ex 2. 디자이너라면" - "디자인 리소스 관리 방식을 변경했을 때, 변경 전 방식의 리소스들이 레거시가 되어요." (When you change the design resource management method, the resources from the pre-change method become legacy.)
+
+Visual Description:
+- The card uses a Q&A format, starting with a user's (or character N's) potential confusion.
+- It then provides two distinct examples for different roles (PM and Designer) in separate boxes with yellow headers.
+- The background is light gray. No characters are depicted.
+
+Tone and Manner:
+- Empathetic, acknowledging that the concept might still be unclear.
+- Practical and illustrative, using role-specific examples to clarify.
+- The language is straightforward and aims to make the concept of legacy relatable to different professionals in the tech industry.
+
+Storytelling Method:
+- This card addresses potential audience confusion by providing concrete examples.
+- It breaks down the abstract idea of "technical debt" or "legacy" into tangible scenarios for Product Managers and Designers, showing how past decisions or systems can impact current work.
+
+Overall Atmosphere:
+- Educational, aiming for deeper understanding by providing context-specific examples. It shows a commitment to ensuring the audience grasps the concept.

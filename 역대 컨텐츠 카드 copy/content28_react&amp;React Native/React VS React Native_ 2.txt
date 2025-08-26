@@ -1,0 +1,25 @@
+Image Filename: React VS React Native_ 2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "React VS React Native"
+- Main title: "React는 웹 개발 라이브러리예요" (React is a web development library.)
+- Explanation:
+  - "상호작용이 많은 웹사이트의 UI를 정교하고 효율적으로 개발하고 관리하기 위해 메타에서 만든 JavaScript 라이브러리예요." (It's a JavaScript library made by Meta to develop and manage the UI of highly interactive websites elaborately and efficiently.)
+  - "React와 관련 생태계의 등장으로 HTML, CSS로 웹 페이지를 그리는 일을 주로 하는 '웹 퍼블리셔'와 HTML, CSS, JS를 모두 사용하는 '웹 프론트엔드 개발자'의 차이가 명확해졌어요." (With the advent of React and its related ecosystem, the difference between 'web publishers' who mainly draw web pages with HTML, CSS, and 'web frontend developers' who use HTML, CSS, and JS all together became clear.)
+- Character Hanib (at laptop, giving a thumbs up) is shown at the bottom.
+
+Visual Description:
+- The background is light gray, with a darker gray banner at the bottom.
+- The card defines React as a web development library.
+
+Tone and Manner:
+- Informative, definitional.
+- It clarifies React's purpose and origin (Meta/Facebook).
+- It also touches upon how React helped differentiate roles like "web publisher" and "web frontend developer."
+
+Storytelling Method:
+- This card focuses on defining React.
+- It explains its primary use case (interactive website UIs) and its impact on clarifying development roles.
+
+Overall Atmosphere:
+- Educational, provides a clear definition of React and its context in web development.

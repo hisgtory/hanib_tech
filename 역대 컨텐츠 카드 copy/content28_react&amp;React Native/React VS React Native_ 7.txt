@@ -1,0 +1,22 @@
+Image Filename: React VS React Native_ 7.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "React VS React Native"
+- Main text: "오늘은 웹 개발 라이브러리 React와 앱 개발 프레임워크 React Native, 그 경쟁자 Flutter에 대해 이야기해 봤어요." (Today, we talked about the web development library React, the app development framework React Native, and its competitor Flutter.) "React", "React Native", and "Flutter" are highlighted in yellow.
+- Character Hanib (at laptop, giving a thumbs up) with a speech bubble: "여러분의 회사는 어떤 걸 사용하고 있나요? .." (What does your company use? ..)
+
+Visual Description:
+- The background is dark gray.
+- The card serves as a concluding summary for the series comparing React, React Native, and Flutter.
+
+Tone and Manner:
+- Summarizing, engaging.
+- It recaps the topics covered and poses a question to the audience to encourage interaction.
+
+Storytelling Method:
+- This card wraps up the comparative series.
+- It reiterates the main technologies discussed.
+- The question to the audience aims to foster a sense of community and shared experience.
+
+Overall Atmosphere:
+- Concludes the educational series and invites audience participation by asking about their own experiences with these technologies.

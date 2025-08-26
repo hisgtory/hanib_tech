@@ -1,0 +1,24 @@
+Image Filename: Legacy_2.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Legacy"
+- Main text: "레거시는 현시점에서 바라보았을 때 코드의 가독성, 생산성을 저해하는 것들을 뜻해요" (Legacy refers to things that, when viewed from the present, hinder code readability and productivity.)
+- Smaller text below: "코드뿐만 아니라 서버 인프라나 배포 파이프라인 등 개발자들이 생산해낸 모든 것들엔 레거시가 필연적으로 쌓여요." (Legacy inevitably accumulates not only in code but also in everything developers produce, such as server infrastructure and deployment pipelines.)
+- Speech bubble from character Hanib (at laptop, giving a thumbs up): "'기술 부채'라고도 해요" (It's also called 'technical debt').
+
+Visual Description:
+- The character "Hanib" is shown at a laptop, giving a thumbs-up, reinforcing their role as the knowledgeable explainer.
+- The background is a light gray, differentiating it from the yellow introductory card.
+
+Tone and Manner:
+- Informative, direct, and clear.
+- It defines "legacy" in a practical way, focusing on its impact on current development.
+- Introducing the term "기술 부채" (technical debt) provides a common industry synonym, enhancing understanding.
+
+Storytelling Method:
+- This card directly defines the term introduced in the previous card.
+- It expands the definition beyond just code to include other aspects of software development.
+- The character Hanib acts as the authority delivering the information.
+
+Overall Atmosphere:
+- Educational, straightforward. Aims to provide a clear and concise explanation of a key software development concept.

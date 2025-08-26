@@ -1,0 +1,25 @@
+Image Filename: Git_ 3.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Git"
+- Title bubble (black with white text): "Branch"
+- Main text:
+  - "아마존 사이트가 평균 12초에 한번 배포된다는 사실 알고 계신가요?" (Did you know that the Amazon site is deployed on average once every 12 seconds?)
+  - "아마존보다 인원이 훨씬 적은 스타트업도 하루에 여러번 배포를 하는게 일반적이에요." (Even startups with far fewer personnel than Amazon typically deploy multiple times a day.)
+  - "배포를 자주 하면 다른 개발자가 작업 중이던 코드도 같이 배포되는거 아닌가?!🤔 하는 궁금증을 가질 수 있는데요." (If you deploy frequently, you might wonder, "Doesn't code other developers are working on get deployed too?!" 🤔)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card is text-focused, setting up a problem/question related to frequent deployments.
+
+Tone and Manner:
+- Intriguing, sets up a common concern.
+- Uses a surprising fact (Amazon's deployment frequency) to grab attention.
+- The question posed at the end is designed to resonate with a common fear or misunderstanding about collaborative development and deployment.
+
+Storytelling Method:
+- This card introduces the concept of "Branch" by first highlighting the challenge of frequent deployments in a collaborative environment.
+- It uses a "problem-posing" approach to lead into the explanation of how branches help solve this issue.
+
+Overall Atmosphere:
+- Educational, aims to explain the necessity and utility of branching by first presenting a relatable problem in software development.

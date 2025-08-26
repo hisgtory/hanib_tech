@@ -1,0 +1,22 @@
+Image Filename: ITnews_ 1.png
+
+Visible Text:
+- Top left: "Hanib_tech"
+- Main title: "Open AI에 쿠데타가 일어나다" (A coup d'état occurs at OpenAI)
+- Subtitle: "CEO 샘 알트만 해고" (CEO Sam Altman fired)
+
+Visual Description:
+- The background is light gray.
+- Character Hanib is depicted as a news reporter, holding a microphone with "NEWS" on it, speaking into it.
+- A speech bubble next to Hanib contains the OpenAI logo.
+
+Tone and Manner:
+- News reporting, dramatic ("coup d'état").
+- Aims to deliver breaking news or significant events in the tech world.
+
+Storytelling Method:
+- This is an introductory card for a news piece about the events at OpenAI involving Sam Altman.
+- The "NEWS" microphone and the dramatic headline establish the format as a news report.
+
+Overall Atmosphere:
+- Conveys a sense of urgency and importance, typical of breaking news. The style is different from the usual explainer content, indicating a news segment.

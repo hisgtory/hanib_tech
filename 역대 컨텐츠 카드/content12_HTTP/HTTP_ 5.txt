@@ -1,0 +1,27 @@
+Image Filename: HTTP_ 5.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "HTTP status code"
+- Title bubble (black with white text): "400 Bad Request 🧯" (Fire extinguisher emoji added)
+- Main explanation:
+  - "처리할 수 없는 잘못된 요청에 대해 400으로 응답해요." (Responds with 400 for an invalid request that cannot be processed.)
+  - "그 예시로 시작일이 종료일보다 크거나, 최대 글자 수를 초과하는 등의 상황이 있어요." (Examples include situations where the start date is later than the end date, or the maximum character count is exceeded.)
+  - "서버는 400 응답 코드와 함께 수정할 부분을 알려주고, 클라이언트는 그 내용을 화면에 렌더링해요." (The server informs what needs to be corrected along with the 400 response code, and the client renders this information on the screen.)
+- Example UI element: An input field with "hanib_tech@123456....." showing an error state (red border, "ERROR" label above). Below it, red text says "올바른 이메일 주소를 입력해주세요." (Please enter a valid email address.)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The card explains the "400 Bad Request" HTTP status code.
+
+Tone and Manner:
+- Informative, problem-explaining.
+- Clearly explains that this code indicates a client-side error in the request.
+
+Storytelling Method:
+- This card focuses on a specific error-related HTTP status code (400 Bad Request).
+- It provides examples of what might cause such an error (invalid date range, exceeding character limits).
+- It explains the typical server-client interaction when this error occurs (server indicates what's wrong, client displays it).
+- The UI example of an invalid email input with an error message is a very common and relatable illustration of a 400 Bad Request scenario.
+
+Overall Atmosphere:
+- Educational, helps users understand a common error code and why it occurs, along with how it's typically handled in user interfaces.

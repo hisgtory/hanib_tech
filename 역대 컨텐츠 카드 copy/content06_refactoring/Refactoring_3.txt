@@ -1,0 +1,27 @@
+Image Filename: Refactoring_3.png
+
+Visible Text:
+- Top left: "Hanib_tech", Top right: "Refactoring"
+- Question bubble: "Q. 리팩터링 왜 해야 하는 거예요?" (Q. Why do we need to do refactoring?)
+- Main explanation: "누적된 레거시는 개발자들의 생산성\*과 서비스의 안정성\*을 떨어뜨려요. 코드의 퀄리티를 다시 일정 수준까지 올려 생산성과 안정성을 확보하기 위해 리팩터링이 필요해요." (Accumulated legacy lowers developers' productivity\* and service stability\*. Refactoring is needed to raise the code quality back to a certain level to secure productivity and stability.)
+- Example 1 (Yellow header): "\*생산성이 떨어진 예시" (Example of decreased productivity)
+  - "하나를 바꾸면 다 같이 바뀔 것이라 생각했던 컴포넌트들이 부분만 변경되는 현상이 발견돼요." (When you change one thing, you discover that components you thought would change together only partially change.)
+- Example 2 (Yellow header): "\*안정성이 떨어진 예시" (Example of decreased stability)
+  - "하나를 고치면 또 다른 버그가 생기는 등 버그가 쉽게 생기는 환경이 되어요." (When you fix one thing, another bug appears, creating an environment where bugs easily occur.)
+
+Visual Description:
+- The background is yellow, with the main content on a white rounded rectangle.
+- The layout is text-heavy, using a Q&A format followed by two example boxes. No characters are depicted.
+
+Tone and Manner:
+- Informative, direct, and problem/solution-oriented.
+- It clearly states the negative impacts of legacy (decreased productivity and stability) and positions refactoring as the solution.
+- The examples provided are concrete and relatable to common development frustrations.
+
+Storytelling Method:
+- This card answers the "why" of refactoring.
+- It links the need for refactoring directly to the problems caused by legacy code.
+- It uses specific examples to illustrate how poor code quality (a result of unaddressed legacy) manifests as practical problems for developers.
+
+Overall Atmosphere:
+- Educational, emphasizes the importance and benefits of refactoring by highlighting the pain points it addresses.
