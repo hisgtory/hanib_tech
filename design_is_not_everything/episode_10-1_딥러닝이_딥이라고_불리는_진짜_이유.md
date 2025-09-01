@@ -241,3 +241,34 @@ Episode 10-2에서는 이런 깊은 신경망이 어떻게 **학습**하는지, 
 *다음 편에서 만나요! 🏗️*
 
 **#AI기초 #딥러닝 #비개발자를위한IT #hanib_tech**
+
+-----
+
+## 🎯 **Feedback & Collaboration Insights**
+
+### ✅ **Current Strengths**
+- 건축 빌딩 비유를 통해 딥러닝의 '레이어' 개념을 직관적으로 설명
+- 프로젝트 규모별 모델 선택 가이드로 실무진에게 실용적 정보 제공
+- 비용 vs 성능 트레이드오프를 명확히 제시하여 의사결정 지원
+
+### 🔄 **Areas for Improvement**
+
+**Designer-Developer Collaboration Focus:**
+- AI 모델을 활용한 디자인 툴(Midjourney, Adobe Firefly) 도입 시 디자이너-개발자간 워크플로우 조정 방안 부족
+- AI 생성 이미지의 저작권/라이선스 이슈에 대한 법무팀-디자인팀-개발팀 협의 프로세스 미언급
+
+**Real Team Dialogue Examples:**
+- 기획자: "ChatGPT API 연동해서 자동 콘텐츠 생성하자" vs 개발자: "API 비용과 응답속도 고려 필요" 실제 대화
+- 디자이너: "AI로 배너 자동생성 시스템 만들자" vs 개발자: "모델 학습 데이터와 인프라 비용 검토부터" 현실적 논의
+
+**Failure Cases & Lessons:**
+- 스타트업에서 GPT-3 API로 고객 상담 챗봇 구축했다가 월 API 비용이 개발자 월급을 넘어선 사례
+- AI 추천 시스템 도입 후 사용자 편향 문제로 브랜드 이미지 타격받은 실제 케이스
+
+**Practical Tools & Templates:**
+- "AI 프로젝트 기획서" 템플릿 (데이터 요구사항, 성능 지표, 예산 계획)
+- 개발팀과 AI 모델 선택 논의할 때 사용할 "기술 스펙 체크리스트"
+
+**Visual Elements:**
+- 다양한 AI 모델들의 레이어 수와 용도를 한눈에 비교할 수 있는 인포그래픽
+- AI 도입 프로젝트의 단계별 비용-효과 분석 차트

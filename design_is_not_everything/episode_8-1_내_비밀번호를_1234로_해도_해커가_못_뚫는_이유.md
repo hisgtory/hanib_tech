@@ -234,3 +234,34 @@ echo -n "1235" | sha256sum
 ---
 
 **#해시함수 #보안 #비밀번호 #개발자와소통하기 #hanib_tech**
+
+-----
+
+## 🎯 **Feedback & Collaboration Insights**
+
+### ✅ **Current Strengths**
+- 스토리텔링 기법을 활용한 탐정 미스터리 형식으로 복잡한 보안 개념을 흥미롭게 전달
+- 고기 분쇄기 비유를 통해 해시 함수의 단방향성을 직관적으로 설명
+- 실제 코드 예시와 함께 기술적 정확성 확보
+
+### 🔄 **Areas for Improvement**
+
+**Designer-Developer Collaboration Focus:**
+- 디자이너가 로그인/회원가입 UI 설계 시 보안 요구사항을 어떻게 반영해야 하는지 구체적 가이드 부족
+- "비밀번호 보안성 시각화" 관련 디자인 가이드라인 (진행 바, 보안 등급 표시 등)
+
+**Real Team Dialogue Examples:**
+- 기획자: "사용자가 비밀번호를 잃어버렸을 때 시나리오는?" vs 개발자: "해시된 데이터는 복구 불가능" 대화 시나리오 추가 필요
+- PM: "소셜 로그인으로 보안 강화하자" vs 개발자: "OAuth도 결국 비밀번호 보안이 핵심" 관점 차이 설명
+
+**Failure Cases & Lessons:**
+- LinkedIn 해킹 사건(2012)처럼 Salt 없이 SHA-1만 사용했던 실제 보안 실패 사례
+- 개발팀이 "간단한 해시"로 출시했다가 보안 감사에서 지적받고 전체 시스템 재구축한 사례
+
+**Practical Tools & Templates:**
+- 비개발자용 "보안 체크리스트" (해시 알고리즘, Salt 적용 여부, 2FA 고려사항 등)
+- 개발자에게 질문할 때 사용할 "보안 요구사항 확인 템플릿"
+
+**Visual Elements:**
+- 해시 과정을 단계별로 보여주는 플로우차트
+- bcrypt vs SHA-256 성능 비교 인포그래픽
