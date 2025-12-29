@@ -20,9 +20,10 @@
 │           ├── yama.md         # 핵심 메시지/요약
 │           ├── body.md         # 본문 설명
 │           └── variants/       # 변형 버전들
-│               ├── v{N}_conversation.md
-│               ├── v{N}_yama.md
-│               └── v{N}_body.md
+│               └── v{N}/       # 버전별 폴더
+│                   ├── conversation.md
+│                   ├── yama.md
+│                   └── body.md
 ```
 
 ## 파일 포맷
@@ -80,6 +81,19 @@ selected_variant: null  # variants 중 선택된 버전, null이면 기본 파�
 핵심 메시지 내용
 :::
 ```
+
+#### 일러스트 지시
+```markdown
+[illust: ID="P1-W1-E02-01" DESC="일러스트 설명"]
+```
+
+**ID 체계:**
+- WEEK 표지: `P{파트}-W{주차}-COVER` (예: P1-W1-COVER)
+- 본문 그래픽: `P{파트}-W{주차}-E{에피소드}-{순번}` (예: P1-W1-E02-01)
+
+**편집 방침:**
+- 일러스트는 WEEK 표지와 본문 중간중간의 이해를 돕는 그래픽에만 사용
+- 대화(conversation)는 채팅 UI로 표현되므로 별도 일러스트 불필요
 
 ## 콘텐츠 구성 요소
 
