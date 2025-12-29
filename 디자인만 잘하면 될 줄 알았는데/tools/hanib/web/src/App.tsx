@@ -1,0 +1,232 @@
+import styled from '@emotion/styled';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { TreeView } from './components/TreeView/TreeView';
+import { Editor } from './components/Editor/Editor';
+import { Preview } from './components/Preview/Preview';
+import { ClaudePanel } from './components/Claude/ClaudePanel';
+import { GitPanel } from './components/GitPanel/GitPanel';
+import type { ContentTree } from './types';
+
+const AppContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  color: #cccccc;
+`;
+
+const Header = styled.header`
+  height: 40px;
+  background: #3c3c3c;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #252526;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const MainContent = styled.main`
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+`;
+
+const Sidebar = styled.aside`
+  width: 280px;
+  background: #252526;
+  border-right: 1px solid #3c3c3c;
+  display: flex;
+  flex-direction: column;
+`;
+
+const SidebarHeader = styled.div`
+  height: 35px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #808080;
+  background: #2d2d2d;
+  border-bottom: 1px solid #3c3c3c;
+`;
+
+const SidebarContent = styled.div`
+  flex: 1;
+  overflow-y: auto;
+`;
+
+const EditorPreviewContainer = styled.div`
+  flex: 1;
+  display: flex;
+`;
+
+const EditorPane = styled.div`
+  flex: 1;
+  border-right: 1px solid #3c3c3c;
+`;
+
+const PreviewPane = styled.div`
+  flex: 1;
+`;
+
+const Placeholder = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+
+  .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+`;
+
+const API_BASE = '';
+
+function App() {
+  const [tree, setTree] = useState<ContentTree | null>(null);
+  const [selectedPath, setSelectedPath] = useState<string | null>(null);
+  const [fileName, setFileName] = useState('');
+  const [content, setContent] = useState('');
+  const [selectedText, setSelectedText] = useState('');
+  const [isDirty, setIsDirty] = useState(false);
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Load tree
+  useEffect(() => {
+    fetch(`${API_BASE}/api/tree`)
+      .then(res => res.json())
+      .then(data => setTree(data))
+      .catch(err => console.error('Failed to load tree:', err));
+  }, []);
+
+  // Load file content
+  const loadFile = useCallback(async (path: string, name: string) => {
+    try {
+      const res = await fetch(`${API_BASE}/api/file?path=${encodeURIComponent(path)}`);
+      const data = await res.json();
+      setContent(data.content);
+      setSelectedPath(path);
+      setFileName(name);
+      setIsDirty(false);
+    } catch (err) {
+      console.error('Failed to load file:', err);
+    }
+  }, []);
+
+  // Auto-save with debounce
+  const handleContentChange = useCallback((newContent: string) => {
+    setContent(newContent);
+    setIsDirty(true);
+
+    // Clear previous timeout
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    // Set new timeout for auto-save
+    saveTimeoutRef.current = setTimeout(async () => {
+      if (selectedPath) {
+        try {
+          await fetch(`${API_BASE}/api/file`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              path: selectedPath,
+              content: newContent,
+            }),
+          });
+          setIsDirty(false);
+        } catch (err) {
+          console.error('Failed to save file:', err);
+        }
+      }
+    }, 1000); // Save after 1 second of no typing
+  }, [selectedPath]);
+
+  // Insert Claude response
+  const handleClaudeInsert = useCallback((text: string) => {
+    if (selectedText) {
+      // Replace selected text
+      const newContent = content.replace(selectedText, text);
+      handleContentChange(newContent);
+    } else {
+      // Append to end
+      handleContentChange(content + '\n\n' + text);
+    }
+  }, [content, selectedText, handleContentChange]);
+
+  return (
+    <AppContainer>
+      <Header>
+        <Logo>
+          📚 Hanib Editor
+          {isDirty && <span style={{ color: '#ff9800' }}>•</span>}
+        </Logo>
+      </Header>
+
+      <MainContent>
+        <Sidebar>
+          <SidebarHeader>콘텐츠 탐색</SidebarHeader>
+          <SidebarContent>
+            <TreeView
+              tree={tree}
+              onSelectFile={loadFile}
+              selectedPath={selectedPath}
+            />
+          </SidebarContent>
+        </Sidebar>
+
+        <EditorPreviewContainer>
+          <EditorPane>
+            {selectedPath ? (
+              <Editor
+                content={content}
+                onChange={handleContentChange}
+                onSelectionChange={setSelectedText}
+                fileName={fileName}
+              />
+            ) : (
+              <Placeholder>
+                <div className="icon">📄</div>
+                <div>왼쪽 트리에서 파일을 선택하세요</div>
+              </Placeholder>
+            )}
+          </EditorPane>
+
+          <PreviewPane>
+            {selectedPath ? (
+              <Preview content={content} />
+            ) : (
+              <Placeholder>
+                <div className="icon">👁️</div>
+                <div>프리뷰가 여기에 표시됩니다</div>
+              </Placeholder>
+            )}
+          </PreviewPane>
+        </EditorPreviewContainer>
+      </MainContent>
+
+      <GitPanel />
+
+      <ClaudePanel
+        selectedText={selectedText}
+        onInsert={handleClaudeInsert}
+      />
+    </AppContainer>
+  );
+}
+
+export default App;

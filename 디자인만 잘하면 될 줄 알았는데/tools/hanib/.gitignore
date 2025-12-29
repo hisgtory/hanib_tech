@@ -1,0 +1,22 @@
+# Binaries
+bin/
+*.exe
+
+# Dependencies
+web/node_modules/
+
+# Build output
+web/dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
