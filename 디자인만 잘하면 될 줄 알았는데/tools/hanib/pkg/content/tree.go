@@ -25,13 +25,20 @@ type Week struct {
 	Episodes []Episode `json:"episodes"`
 }
 
+// Variant represents a variant folder with its files
+type Variant struct {
+	Name  string   `json:"name"`
+	Files []string `json:"files"`
+}
+
 // Episode represents an episode within a week
 type Episode struct {
-	Path     string   `json:"path"`
-	Title    string   `json:"title"`
-	Order    int      `json:"order"`
-	Status   string   `json:"status"`
-	Variants []string `json:"variants"`
+	Path     string    `json:"path"`
+	Title    string    `json:"title"`
+	Order    int       `json:"order"`
+	Status   string    `json:"status"`
+	Files    []string  `json:"files"`    // Episode-level files (body.md, conversation.md, yama.md)
+	Variants []Variant `json:"variants"` // Variant folders with their files
 }
 
 // ContentTree represents the full content structure
@@ -139,15 +146,38 @@ func LoadTree(root string) (*ContentTree, error) {
 					}
 				}
 
-				// Find variants
+				// Find episode-level files
+				epFiles, _ := os.ReadDir(epPath)
+				for _, ef := range epFiles {
+					if !ef.IsDir() && strings.HasSuffix(ef.Name(), ".md") {
+						ep.Files = append(ep.Files, ef.Name())
+					}
+				}
+				sort.Strings(ep.Files)
+
+				// Find variants (ALL directories, not just "v" prefix)
 				variantsPath := filepath.Join(epPath, "variants")
 				if varEntries, err := os.ReadDir(variantsPath); err == nil {
 					for _, ve := range varEntries {
-						if ve.IsDir() && strings.HasPrefix(ve.Name(), "v") {
-							ep.Variants = append(ep.Variants, ve.Name())
+						if ve.IsDir() {
+							variant := Variant{Name: ve.Name()}
+							// Find files inside variant
+							varPath := filepath.Join(variantsPath, ve.Name())
+							if varFiles, err := os.ReadDir(varPath); err == nil {
+								for _, vf := range varFiles {
+									if !vf.IsDir() && strings.HasSuffix(vf.Name(), ".md") {
+										variant.Files = append(variant.Files, vf.Name())
+									}
+								}
+								sort.Strings(variant.Files)
+							}
+							ep.Variants = append(ep.Variants, variant)
 						}
 					}
-					sort.Strings(ep.Variants)
+					// Sort variants by name
+					sort.Slice(ep.Variants, func(i, j int) bool {
+						return ep.Variants[i].Name < ep.Variants[j].Name
+					})
 				}
 
 				week.Episodes = append(week.Episodes, ep)

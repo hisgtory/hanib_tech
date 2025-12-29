@@ -196,6 +196,7 @@ const Highlight = styled.mark`
 export function Preview({ content }: PreviewProps) {
   // Process custom syntax
   const processedContent = useMemo(() => {
+    if (!content) return '';
     let result = content;
 
     // Process :::conversation blocks
