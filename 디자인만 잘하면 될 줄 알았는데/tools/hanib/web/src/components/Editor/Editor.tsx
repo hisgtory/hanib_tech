@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import MonacoEditor from '@monaco-editor/react';
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useState } from 'react';
 import type { editor } from 'monaco-editor';
 
 interface EditorProps {
@@ -30,10 +30,34 @@ const Header = styled.div`
 const EditorWrapper = styled.div`
   flex: 1;
   overflow: hidden;
+  position: relative;
+`;
+
+const CopyButton = styled.button<{ visible: boolean }>`
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 8px 16px;
+  background: #4a4a4a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  z-index: 10;
+  opacity: ${props => props.visible ? 1 : 0};
+  transform: translateY(${props => props.visible ? '0' : '10px'});
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: ${props => props.visible ? 'auto' : 'none'};
+
+  &:hover {
+    background: #5a5a5a;
+  }
 `;
 
 export function Editor({ content, onChange, onSelectionChange, fileName }: EditorProps) {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
+  const [selectedText, setSelectedText] = useState('');
 
   const handleEditorMount = useCallback((editor: editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
@@ -41,12 +65,19 @@ export function Editor({ content, onChange, onSelectionChange, fileName }: Edito
     // Selection change listener
     editor.onDidChangeCursorSelection(() => {
       const selection = editor.getSelection();
-      if (selection && onSelectionChange) {
-        const selectedText = editor.getModel()?.getValueInRange(selection) || '';
-        onSelectionChange(selectedText);
+      const text = editor.getModel()?.getValueInRange(selection!) || '';
+      setSelectedText(text);
+      if (onSelectionChange) {
+        onSelectionChange(text);
       }
     });
   }, [onSelectionChange]);
+
+  const handleCopy = useCallback(async () => {
+    if (selectedText) {
+      await navigator.clipboard.writeText(selectedText);
+    }
+  }, [selectedText]);
 
   return (
     <Container>
@@ -73,6 +104,9 @@ export function Editor({ content, onChange, onSelectionChange, fileName }: Edito
             automaticLayout: true,
           }}
         />
+        <CopyButton visible={selectedText.length > 0} onClick={handleCopy}>
+          복사
+        </CopyButton>
       </EditorWrapper>
     </Container>
   );
