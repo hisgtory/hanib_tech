@@ -202,6 +202,7 @@ function App() {
                 content={content}
                 onChange={handleContentChange}
                 fileName={fileName}
+                filePath={selectedPath || ''}
               />
             ) : (
               <Placeholder>

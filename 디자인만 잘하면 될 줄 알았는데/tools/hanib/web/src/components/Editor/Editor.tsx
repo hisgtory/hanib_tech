@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import MonacoEditor from '@monaco-editor/react';
-import { useRef, useCallback, useState } from 'react';
+import { useRef, useCallback, useState, useEffect } from 'react';
 import type { editor } from 'monaco-editor';
 import { useToast } from '../Toast';
 
@@ -10,6 +10,7 @@ interface EditorProps {
   onChange: (value: string) => void;
   onSelectionChange?: (text: string) => void;
   fileName: string;
+  filePath: string;
 }
 
 const Container = styled.div`
@@ -84,7 +85,23 @@ const CopyButton = styled.button<{ visible: boolean }>`
   }
 `;
 
-export function Editor({ content, onChange, onSelectionChange, fileName }: EditorProps) {
+const CopyPathButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #808080;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-left: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+
+  &:hover {
+    background: #4a4a4a;
+    color: #fff;
+  }
+`;
+
+export function Editor({ content, onChange, onSelectionChange, fileName, filePath }: EditorProps) {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const [selectedText, setSelectedText] = useState('');
   const { showToast } = useToast();
@@ -110,10 +127,35 @@ export function Editor({ content, onChange, onSelectionChange, fileName }: Edito
     }
   }, [selectedText, showToast]);
 
+  const handleCopyPath = useCallback(async () => {
+    if (filePath) {
+      await navigator.clipboard.writeText(filePath);
+      showToast('경로가 복사되었습니다');
+    }
+  }, [filePath, showToast]);
+
+  // Cmd+Shift+C keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey && e.shiftKey && e.key === 'c') {
+        e.preventDefault();
+        handleCopyPath();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleCopyPath]);
+
   return (
     <Container>
       <Header>
         📄 {fileName || 'No file selected'}
+        {filePath && (
+          <CopyPathButton onClick={handleCopyPath} title="경로 복사 (⌘⇧C)">
+            📋
+          </CopyPathButton>
+        )}
       </Header>
       <EditorWrapper>
         <MonacoEditor
