@@ -5,6 +5,7 @@ import { Editor } from './components/Editor/Editor';
 import { Preview } from './components/Preview/Preview';
 import { ClaudePanel } from './components/Claude/ClaudePanel';
 import { GitPanel } from './components/GitPanel/GitPanel';
+import { ToastProvider } from './components/Toast';
 import type { ContentTree } from './types';
 
 const AppContainer = styled.div`
@@ -173,6 +174,7 @@ function App() {
   const contextPaths = selectedPath ? [selectedPath] : [];
 
   return (
+    <ToastProvider>
     <AppContainer>
       <Header>
         <Logo>
@@ -229,6 +231,7 @@ function App() {
         onFileChange={reloadCurrentFile}
       />
     </AppContainer>
+    </ToastProvider>
   );
 }
 
