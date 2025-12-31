@@ -19,7 +19,7 @@ import (
 )
 
 var (
-	port        = flag.Int("port", 3001, "Server port")
+	port        = flag.Int("port", 3031, "Server port")
 	contentRoot = flag.String("root", "", "Content root directory")
 )
 
@@ -105,20 +105,22 @@ func main() {
 		return c.JSON(fiber.Map{"success": true})
 	})
 
-	// Claude endpoint (SSE)
+	// Claude chat endpoint (SSE) - multi-turn with file system access
 	api.Post("/claude", func(c *fiber.Ctx) error {
 		var req struct {
-			Prompt  string `json:"prompt"`
-			Context string `json:"context"`
+			Prompt     string   `json:"prompt"`
+			FilePaths  []string `json:"filePaths"`  // File paths as context
+			SessionID  string   `json:"sessionId"`  // For conversation continuity
 		}
 		if err := c.BodyParser(&req); err != nil {
 			return c.Status(400).JSON(fiber.Map{"error": err.Error()})
 		}
 
-		// Full prompt with context
+		// Build prompt with file path context
 		fullPrompt := req.Prompt
-		if req.Context != "" {
-			fullPrompt = fmt.Sprintf("%s\n\n---\n\n%s", req.Prompt, req.Context)
+		if len(req.FilePaths) > 0 {
+			pathList := strings.Join(req.FilePaths, ", ")
+			fullPrompt = fmt.Sprintf("컨텍스트 파일들: %s\n\n%s", pathList, req.Prompt)
 		}
 
 		// Set SSE headers
@@ -128,9 +130,24 @@ func main() {
 		c.Set("Transfer-Encoding", "chunked")
 
 		c.Context().SetBodyStreamWriter(func(w *bufio.Writer) {
-			// Run claude -p command
-			cmd := exec.Command("claude", "-p", fullPrompt)
+			// Build claude command with working directory
+			args := []string{"-p", fullPrompt, "--allowedTools", "Edit,Write,Read"}
+
+			// Continue session if sessionId provided
+			if req.SessionID != "" {
+				args = append(args, "--resume", req.SessionID)
+			}
+
+			cmd := exec.Command("claude", args...)
+			cmd.Dir = root // Set working directory to content root
+
 			stdout, err := cmd.StdoutPipe()
+			if err != nil {
+				sendSSE(w, "error", err.Error())
+				return
+			}
+
+			stderr, err := cmd.StderrPipe()
 			if err != nil {
 				sendSSE(w, "error", err.Error())
 				return
@@ -140,6 +157,15 @@ func main() {
 				sendSSE(w, "error", err.Error())
 				return
 			}
+
+			// Read stdout
+			go func() {
+				scanner := bufio.NewScanner(stderr)
+				for scanner.Scan() {
+					line := scanner.Text()
+					sendSSE(w, "stderr", line)
+				}
+			}()
 
 			scanner := bufio.NewScanner(stdout)
 			for scanner.Scan() {
@@ -155,6 +181,29 @@ func main() {
 		})
 
 		return nil
+	})
+
+	// File modification time endpoint (for change detection)
+	api.Get("/file/mtime", func(c *fiber.Ctx) error {
+		path := c.Query("path")
+		if path == "" {
+			return c.Status(400).JSON(fiber.Map{"error": "path required"})
+		}
+
+		fullPath := filepath.Join(root, path)
+		if !strings.HasPrefix(fullPath, root) {
+			return c.Status(403).JSON(fiber.Map{"error": "access denied"})
+		}
+
+		info, err := os.Stat(fullPath)
+		if err != nil {
+			return c.Status(404).JSON(fiber.Map{"error": err.Error()})
+		}
+
+		return c.JSON(fiber.Map{
+			"path":  path,
+			"mtime": info.ModTime().UnixMilli(),
+		})
 	})
 
 	// Git status endpoint

@@ -100,7 +100,6 @@ function App() {
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
   const [fileName, setFileName] = useState('');
   const [content, setContent] = useState('');
-  const [selectedText, setSelectedText] = useState('');
   const [isDirty, setIsDirty] = useState(false);
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -156,17 +155,22 @@ function App() {
     }, 1000); // Save after 1 second of no typing
   }, [selectedPath]);
 
-  // Insert Claude response
-  const handleClaudeInsert = useCallback((text: string) => {
-    if (selectedText) {
-      // Replace selected text
-      const newContent = content.replace(selectedText, text);
-      handleContentChange(newContent);
-    } else {
-      // Append to end
-      handleContentChange(content + '\n\n' + text);
+  // Reload current file (for when Claude modifies it)
+  const reloadCurrentFile = useCallback(async () => {
+    if (selectedPath) {
+      try {
+        const res = await fetch(`${API_BASE}/api/file?path=${encodeURIComponent(selectedPath)}`);
+        const data = await res.json();
+        setContent(data.content);
+        setIsDirty(false);
+      } catch (err) {
+        console.error('Failed to reload file:', err);
+      }
     }
-  }, [content, selectedText, handleContentChange]);
+  }, [selectedPath]);
+
+  // Context paths for Claude (currently selected file)
+  const contextPaths = selectedPath ? [selectedPath] : [];
 
   return (
     <AppContainer>
@@ -195,7 +199,6 @@ function App() {
               <Editor
                 content={content}
                 onChange={handleContentChange}
-                onSelectionChange={setSelectedText}
                 fileName={fileName}
               />
             ) : (
@@ -222,8 +225,8 @@ function App() {
       <GitPanel />
 
       <ClaudePanel
-        selectedText={selectedText}
-        onInsert={handleClaudeInsert}
+        contextPaths={contextPaths}
+        onFileChange={reloadCurrentFile}
       />
     </AppContainer>
   );

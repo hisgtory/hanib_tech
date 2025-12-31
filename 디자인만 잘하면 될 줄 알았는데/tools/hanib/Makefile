@@ -48,7 +48,7 @@ dev: build-server
 	@echo "🚀 Starting development servers..."
 	@trap 'kill 0' SIGINT; \
 		(cd $(WEB_DIR) && $(NPM) run dev) & \
-		./$(BIN_DIR)/hanib-server --port 3001 & \
+		./$(BIN_DIR)/hanib-server --port 3031 & \
 		wait
 
 # Run server only

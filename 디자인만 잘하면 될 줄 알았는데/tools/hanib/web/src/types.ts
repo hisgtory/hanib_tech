@@ -1,10 +1,16 @@
 // Content types matching Go structs
+export interface Variant {
+  name: string;
+  files: string[];
+}
+
 export interface Episode {
   path: string;
   title: string;
   order: number;
   status: string;
-  variants: string[];
+  files: string[];    // Episode-level files (body.md, conversation.md, yama.md)
+  variants: Variant[];
 }
 
 export interface Week {
