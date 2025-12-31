@@ -222,7 +222,7 @@ function App() {
         </EditorPreviewContainer>
       </MainContent>
 
-      <GitPanel />
+      <GitPanel onSelectFile={loadFile} />
 
       <ClaudePanel
         contextPaths={contextPaths}

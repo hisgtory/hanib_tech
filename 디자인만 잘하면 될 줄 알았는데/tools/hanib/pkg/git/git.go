@@ -33,6 +33,23 @@ func GetStatus(dir string) (*RepoStatus, error) {
 		return &RepoStatus{HasRepo: false}, nil
 	}
 
+	// Get git repo root to calculate relative paths
+	repoRoot, err := runGit(dir, "rev-parse", "--show-toplevel")
+	if err != nil {
+		return nil, err
+	}
+	repoRoot = strings.TrimSpace(repoRoot)
+
+	// Calculate prefix to strip (dir relative to repo root)
+	prefix := ""
+	if strings.HasPrefix(dir, repoRoot) && dir != repoRoot {
+		prefix = strings.TrimPrefix(dir, repoRoot)
+		prefix = strings.TrimPrefix(prefix, "/")
+		if prefix != "" {
+			prefix = prefix + "/"
+		}
+	}
+
 	// Get current branch
 	branch, err := runGit(dir, "branch", "--show-current")
 	if err != nil {
@@ -40,8 +57,8 @@ func GetStatus(dir string) (*RepoStatus, error) {
 	}
 	status.Branch = strings.TrimSpace(branch)
 
-	// Get status
-	output, err := runGit(dir, "status", "--porcelain")
+	// Get status (with -c core.quotePath=false for UTF-8 paths)
+	output, err := runGitConfig(dir, "status", "--porcelain")
 	if err != nil {
 		return nil, err
 	}
@@ -57,6 +74,16 @@ func GetStatus(dir string) (*RepoStatus, error) {
 		staged := line[0]
 		unstaged := line[1]
 		path := strings.TrimSpace(line[3:])
+		// Remove quotes if present (git adds quotes for paths with spaces)
+		path = strings.Trim(path, "\"")
+
+		// Strip prefix to make path relative to content root
+		if prefix != "" && strings.HasPrefix(path, prefix) {
+			path = strings.TrimPrefix(path, prefix)
+		} else if prefix != "" {
+			// File is outside content root, skip it
+			continue
+		}
 
 		fs := FileStatus{Path: path}
 
@@ -124,4 +151,10 @@ func runGit(dir string, args ...string) (string, error) {
 	}
 
 	return stdout.String(), nil
+}
+
+// runGitConfig runs a git command with -c core.quotePath=false for UTF-8 paths
+func runGitConfig(dir string, args ...string) (string, error) {
+	fullArgs := append([]string{"-c", "core.quotePath=false"}, args...)
+	return runGit(dir, fullArgs...)
 }
