@@ -1,11 +1,22 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
-import type { ContentTree, Part, Week, Episode, Variant } from '../../types';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import type { ContentTree } from '../../types';
 
 interface TreeViewProps {
   tree: ContentTree | null;
   onSelectFile: (path: string, name: string) => void;
+  onSelectFileWithFocus?: (path: string, name: string) => void;
   selectedPath: string | null;
+}
+
+interface TreeItem {
+  id: string;
+  type: 'part' | 'week' | 'episode' | 'file' | 'variant' | 'variant-file';
+  path: string;
+  displayName: string;
+  level: number;
+  isExpandable: boolean;
+  parentPath?: string;
 }
 
 const Container = styled.div`
@@ -15,9 +26,14 @@ const Container = styled.div`
   font-size: 13px;
   color: #cccccc;
   background: #252526;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
-const TreeNode = styled.div<{ level: number; selected?: boolean; draggable?: boolean }>`
+const TreeNode = styled.div<{ level: number; selected?: boolean; focused?: boolean; draggable?: boolean }>`
   padding: 4px 8px;
   padding-left: ${props => 8 + props.level * 16}px;
   cursor: ${props => props.draggable ? 'grab' : 'pointer'};
@@ -25,7 +41,9 @@ const TreeNode = styled.div<{ level: number; selected?: boolean; draggable?: boo
   display: flex;
   align-items: center;
   gap: 6px;
-  background: ${props => props.selected ? '#37373d' : 'transparent'};
+  background: ${props => props.selected ? '#37373d' : props.focused ? '#2a2d2e' : 'transparent'};
+  outline: ${props => props.focused ? '1px solid #007acc' : 'none'};
+  outline-offset: -1px;
 
   &:hover {
     background: #2a2d2e;
@@ -63,7 +81,6 @@ const Chevron = styled.span<{ expanded: boolean }>`
   color: #808080;
 `;
 
-// Get icon for file type
 function getFileIcon(filename: string): string {
   if (filename.includes('conversation')) return '💬';
   if (filename.includes('yama')) return '⭐';
@@ -71,263 +88,288 @@ function getFileIcon(filename: string): string {
   return '📄';
 }
 
-export function TreeView({ tree, onSelectFile, selectedPath }: TreeViewProps) {
-  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+function getNodeIcon(type: TreeItem['type'], filename?: string): string {
+  switch (type) {
+    case 'part': return '📖';
+    case 'week': return '📅';
+    case 'episode': return '📝';
+    case 'variant': return '🔀';
+    case 'file':
+    case 'variant-file':
+      return getFileIcon(filename || '');
+    default: return '📄';
+  }
+}
 
-  const toggleExpand = (path: string) => {
-    const next = new Set(expanded);
-    if (next.has(path)) {
-      next.delete(path);
-    } else {
-      next.add(path);
+export function TreeView({ tree, onSelectFile, onSelectFileWithFocus, selectedPath }: TreeViewProps) {
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [focusedId, setFocusedId] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  // Build flat list of visible items
+  const visibleItems = useMemo(() => {
+    if (!tree) return [];
+
+    const items: TreeItem[] = [];
+
+    for (const part of tree.parts) {
+      items.push({
+        id: part.path,
+        type: 'part',
+        path: part.path,
+        displayName: part.title,
+        level: 0,
+        isExpandable: true,
+      });
+
+      if (expanded.has(part.path)) {
+        for (const week of part.weeks) {
+          const weekFullPath = `${part.path}/${week.path}`;
+          items.push({
+            id: weekFullPath,
+            type: 'week',
+            path: weekFullPath,
+            displayName: week.title,
+            level: 1,
+            isExpandable: true,
+            parentPath: part.path,
+          });
+
+          if (expanded.has(weekFullPath)) {
+            for (const episode of week.episodes) {
+              const epFullPath = `${weekFullPath}/${episode.path}`;
+              const hasFiles = episode.files && episode.files.length > 0;
+              const hasVariants = episode.variants && episode.variants.length > 0;
+
+              items.push({
+                id: epFullPath,
+                type: 'episode',
+                path: epFullPath,
+                displayName: episode.title,
+                level: 2,
+                isExpandable: hasFiles || hasVariants,
+                parentPath: weekFullPath,
+              });
+
+              if (expanded.has(epFullPath)) {
+                // Files
+                if (hasFiles) {
+                  for (const file of episode.files) {
+                    const filePath = `${epFullPath}/${file}`;
+                    items.push({
+                      id: filePath,
+                      type: 'file',
+                      path: filePath,
+                      displayName: `${episode.title} - ${file}`,
+                      level: 3,
+                      isExpandable: false,
+                      parentPath: epFullPath,
+                    });
+                  }
+                }
+                // Variants
+                if (hasVariants) {
+                  for (const variant of episode.variants) {
+                    const variantPath = `${epFullPath}/variants/${variant.name}`;
+                    const hasVarFiles = variant.files && variant.files.length > 0;
+
+                    items.push({
+                      id: variantPath,
+                      type: 'variant',
+                      path: variantPath,
+                      displayName: variant.name,
+                      level: 3,
+                      isExpandable: hasVarFiles,
+                      parentPath: epFullPath,
+                    });
+
+                    if (expanded.has(variantPath) && hasVarFiles) {
+                      for (const file of variant.files) {
+                        const filePath = `${variantPath}/${file}`;
+                        items.push({
+                          id: filePath,
+                          type: 'variant-file',
+                          path: filePath,
+                          displayName: `${episode.title} (${variant.name}) - ${file}`,
+                          level: 4,
+                          isExpandable: false,
+                          parentPath: variantPath,
+                        });
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    setExpanded(next);
-  };
+
+    return items;
+  }, [tree, expanded]);
+
+  const toggleExpand = useCallback((path: string) => {
+    setExpanded(prev => {
+      const next = new Set(prev);
+      if (next.has(path)) {
+        next.delete(path);
+      } else {
+        next.add(path);
+      }
+      return next;
+    });
+  }, []);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (visibleItems.length === 0) return;
+
+    const currentIndex = focusedId
+      ? visibleItems.findIndex(item => item.id === focusedId)
+      : -1;
+    const currentItem = currentIndex >= 0 ? visibleItems[currentIndex] : null;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        if (currentIndex < visibleItems.length - 1) {
+          const nextItem = visibleItems[currentIndex + 1];
+          setFocusedId(nextItem.id);
+          itemRefs.current.get(nextItem.id)?.scrollIntoView({ block: 'nearest' });
+        } else if (currentIndex === -1 && visibleItems.length > 0) {
+          setFocusedId(visibleItems[0].id);
+        }
+        break;
+
+      case 'ArrowUp':
+        e.preventDefault();
+        if (currentIndex > 0) {
+          const prevItem = visibleItems[currentIndex - 1];
+          setFocusedId(prevItem.id);
+          itemRefs.current.get(prevItem.id)?.scrollIntoView({ block: 'nearest' });
+        } else if (currentIndex === -1 && visibleItems.length > 0) {
+          setFocusedId(visibleItems[visibleItems.length - 1].id);
+        }
+        break;
+
+      case 'ArrowRight':
+        e.preventDefault();
+        if (currentItem?.isExpandable && !expanded.has(currentItem.path)) {
+          toggleExpand(currentItem.path);
+        }
+        break;
+
+      case 'ArrowLeft':
+        e.preventDefault();
+        if (currentItem) {
+          if (currentItem.isExpandable && expanded.has(currentItem.path)) {
+            toggleExpand(currentItem.path);
+          } else if (currentItem.parentPath) {
+            setFocusedId(currentItem.parentPath);
+            itemRefs.current.get(currentItem.parentPath)?.scrollIntoView({ block: 'nearest' });
+          }
+        }
+        break;
+
+      case 'Enter':
+        e.preventDefault();
+        if (currentItem) {
+          if (currentItem.type === 'file' || currentItem.type === 'variant-file') {
+            // Cmd+Enter: open file and focus editor
+            if (e.metaKey && onSelectFileWithFocus) {
+              onSelectFileWithFocus(currentItem.path, currentItem.displayName);
+            } else {
+              onSelectFile(currentItem.path, currentItem.displayName);
+            }
+          } else if (currentItem.isExpandable) {
+            toggleExpand(currentItem.path);
+          }
+        }
+        break;
+    }
+  }, [visibleItems, focusedId, expanded, toggleExpand, onSelectFile, onSelectFileWithFocus]);
+
+  // Focus container on Escape from anywhere
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        containerRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
+
+  // Scroll focused item into view
+  useEffect(() => {
+    if (focusedId) {
+      itemRefs.current.get(focusedId)?.scrollIntoView({ block: 'nearest' });
+    }
+  }, [focusedId]);
 
   if (!tree) {
     return <Container>Loading...</Container>;
   }
 
   return (
-    <Container>
-      {tree.parts.map(part => (
-        <PartNode
-          key={part.path}
-          part={part}
-          expanded={expanded}
-          toggleExpand={toggleExpand}
-          onSelectFile={onSelectFile}
-          selectedPath={selectedPath}
-        />
+    <Container
+      ref={containerRef}
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      onFocus={() => {
+        if (!focusedId && visibleItems.length > 0) {
+          setFocusedId(visibleItems[0].id);
+        }
+      }}
+    >
+      {visibleItems.map(item => (
+        <TreeNode
+          key={item.id}
+          ref={el => {
+            if (el) itemRefs.current.set(item.id, el);
+            else itemRefs.current.delete(item.id);
+          }}
+          level={item.level}
+          selected={selectedPath === item.path}
+          focused={focusedId === item.id}
+          draggable={item.type === 'file' || item.type === 'variant-file'}
+          onClick={() => {
+            setFocusedId(item.id);
+            if (item.type === 'file' || item.type === 'variant-file') {
+              onSelectFile(item.path, item.displayName);
+            } else if (item.isExpandable) {
+              toggleExpand(item.path);
+            }
+          }}
+          onDragStart={item.type === 'file' || item.type === 'variant-file' ? (e) => {
+            e.dataTransfer.setData('application/json', JSON.stringify({
+              path: item.path,
+              name: item.displayName,
+            }));
+            e.dataTransfer.effectAllowed = 'copy';
+          } : undefined}
+        >
+          {item.isExpandable ? (
+            <Chevron expanded={expanded.has(item.path)}>▶</Chevron>
+          ) : (
+            <span style={{ width: 10 }} />
+          )}
+          <Icon>{getNodeIcon(item.type, item.path.split('/').pop())}</Icon>
+          <Label>{item.type === 'file' || item.type === 'variant-file' ? item.path.split('/').pop() : item.displayName}</Label>
+          {item.type === 'episode' && tree.parts
+            .flatMap(p => p.weeks)
+            .flatMap(w => w.episodes)
+            .find(e => `${e.path}` === item.path.split('/').pop())?.variants?.length ? (
+            <VariantBadge>
+              {tree.parts
+                .flatMap(p => p.weeks)
+                .flatMap(w => w.episodes)
+                .find(e => item.path.endsWith(e.path))?.variants?.length}v
+            </VariantBadge>
+          ) : null}
+        </TreeNode>
       ))}
     </Container>
-  );
-}
-
-function PartNode({
-  part,
-  expanded,
-  toggleExpand,
-  onSelectFile,
-  selectedPath,
-}: {
-  part: Part;
-  expanded: Set<string>;
-  toggleExpand: (path: string) => void;
-  onSelectFile: (path: string, name: string) => void;
-  selectedPath: string | null;
-}) {
-  const isExpanded = expanded.has(part.path);
-
-  return (
-    <>
-      <TreeNode level={0} onClick={() => toggleExpand(part.path)}>
-        <Chevron expanded={isExpanded}>▶</Chevron>
-        <Icon>📖</Icon>
-        <Label>{part.title}</Label>
-      </TreeNode>
-      {isExpanded &&
-        part.weeks.map(week => (
-          <WeekNode
-            key={week.path}
-            week={week}
-            partPath={part.path}
-            expanded={expanded}
-            toggleExpand={toggleExpand}
-            onSelectFile={onSelectFile}
-            selectedPath={selectedPath}
-          />
-        ))}
-    </>
-  );
-}
-
-function WeekNode({
-  week,
-  partPath,
-  expanded,
-  toggleExpand,
-  onSelectFile,
-  selectedPath,
-}: {
-  week: Week;
-  partPath: string;
-  expanded: Set<string>;
-  toggleExpand: (path: string) => void;
-  onSelectFile: (path: string, name: string) => void;
-  selectedPath: string | null;
-}) {
-  const fullPath = `${partPath}/${week.path}`;
-  const isExpanded = expanded.has(fullPath);
-
-  return (
-    <>
-      <TreeNode level={1} onClick={() => toggleExpand(fullPath)}>
-        <Chevron expanded={isExpanded}>▶</Chevron>
-        <Icon>📅</Icon>
-        <Label>{week.title}</Label>
-      </TreeNode>
-      {isExpanded &&
-        week.episodes.map(ep => (
-          <EpisodeNode
-            key={ep.path}
-            episode={ep}
-            weekPath={fullPath}
-            expanded={expanded}
-            toggleExpand={toggleExpand}
-            onSelectFile={onSelectFile}
-            selectedPath={selectedPath}
-          />
-        ))}
-    </>
-  );
-}
-
-function EpisodeNode({
-  episode,
-  weekPath,
-  expanded,
-  toggleExpand,
-  onSelectFile,
-  selectedPath,
-}: {
-  episode: Episode;
-  weekPath: string;
-  expanded: Set<string>;
-  toggleExpand: (path: string) => void;
-  onSelectFile: (path: string, name: string) => void;
-  selectedPath: string | null;
-}) {
-  const fullPath = `${weekPath}/${episode.path}`;
-  const isExpanded = expanded.has(fullPath);
-  const hasFiles = episode.files && episode.files.length > 0;
-  const hasVariants = episode.variants && episode.variants.length > 0;
-  const hasChildren = hasFiles || hasVariants;
-
-  return (
-    <>
-      <TreeNode
-        level={2}
-        onClick={() => hasChildren && toggleExpand(fullPath)}
-      >
-        {hasChildren ? (
-          <Chevron expanded={isExpanded}>▶</Chevron>
-        ) : (
-          <span style={{ width: 10 }} />
-        )}
-        <Icon>📝</Icon>
-        <Label>{episode.title}</Label>
-        {hasVariants && (
-          <VariantBadge>{episode.variants.length}v</VariantBadge>
-        )}
-      </TreeNode>
-      {isExpanded && (
-        <>
-          {/* Episode-level files */}
-          {hasFiles && episode.files.map(file => {
-            const filePath = `${fullPath}/${file}`;
-            const displayName = `${episode.title} - ${file}`;
-            const isSelected = selectedPath === filePath;
-            return (
-              <TreeNode
-                key={file}
-                level={3}
-                selected={isSelected}
-                draggable
-                onClick={() => onSelectFile(filePath, displayName)}
-                onDragStart={(e) => {
-                  e.dataTransfer.setData('application/json', JSON.stringify({
-                    path: filePath,
-                    name: displayName,
-                  }));
-                  e.dataTransfer.effectAllowed = 'copy';
-                }}
-              >
-                <span style={{ width: 10 }} />
-                <Icon>{getFileIcon(file)}</Icon>
-                <Label>{file}</Label>
-              </TreeNode>
-            );
-          })}
-          {/* Variants */}
-          {hasVariants && episode.variants.map(variant => (
-            <VariantNode
-              key={variant.name}
-              variant={variant}
-              episodePath={fullPath}
-              episodeTitle={episode.title}
-              expanded={expanded}
-              toggleExpand={toggleExpand}
-              onSelectFile={onSelectFile}
-              selectedPath={selectedPath}
-            />
-          ))}
-        </>
-      )}
-    </>
-  );
-}
-
-function VariantNode({
-  variant,
-  episodePath,
-  episodeTitle,
-  expanded,
-  toggleExpand,
-  onSelectFile,
-  selectedPath,
-}: {
-  variant: Variant;
-  episodePath: string;
-  episodeTitle: string;
-  expanded: Set<string>;
-  toggleExpand: (path: string) => void;
-  onSelectFile: (path: string, name: string) => void;
-  selectedPath: string | null;
-}) {
-  const variantPath = `${episodePath}/variants/${variant.name}`;
-  const isExpanded = expanded.has(variantPath);
-  const hasFiles = variant.files && variant.files.length > 0;
-
-  return (
-    <>
-      <TreeNode
-        level={3}
-        onClick={() => hasFiles && toggleExpand(variantPath)}
-      >
-        {hasFiles ? (
-          <Chevron expanded={isExpanded}>▶</Chevron>
-        ) : (
-          <span style={{ width: 10 }} />
-        )}
-        <Icon>🔀</Icon>
-        <Label>{variant.name}</Label>
-      </TreeNode>
-      {isExpanded && hasFiles && variant.files.map(file => {
-        const filePath = `${variantPath}/${file}`;
-        const displayName = `${episodeTitle} (${variant.name}) - ${file}`;
-        const isSelected = selectedPath === filePath;
-        return (
-          <TreeNode
-            key={file}
-            level={4}
-            selected={isSelected}
-            draggable
-            onClick={() => onSelectFile(filePath, displayName)}
-            onDragStart={(e) => {
-              e.dataTransfer.setData('application/json', JSON.stringify({
-                path: filePath,
-                name: displayName,
-              }));
-              e.dataTransfer.effectAllowed = 'copy';
-            }}
-          >
-            <span style={{ width: 10 }} />
-            <Icon>{getFileIcon(file)}</Icon>
-            <Label>{file}</Label>
-          </TreeNode>
-        );
-      })}
-    </>
   );
 }

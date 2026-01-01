@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { TreeView } from './components/TreeView/TreeView';
-import { Editor } from './components/Editor/Editor';
+import { Editor, type EditorHandle } from './components/Editor/Editor';
 import { Preview } from './components/Preview/Preview';
 import { ClaudePanel } from './components/Claude/ClaudePanel';
 import { GitPanel } from './components/GitPanel/GitPanel';
+import { KeymapGuide } from './components/KeymapGuide/KeymapGuide';
 import { ToastProvider } from './components/Toast';
 import type { ContentTree } from './types';
 
@@ -102,7 +103,9 @@ function App() {
   const [fileName, setFileName] = useState('');
   const [content, setContent] = useState('');
   const [isDirty, setIsDirty] = useState(false);
+  const [showKeymapGuide, setShowKeymapGuide] = useState(false);
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const editorRef = useRef<EditorHandle>(null);
 
   // Load tree
   useEffect(() => {
@@ -110,6 +113,25 @@ function App() {
       .then(res => res.json())
       .then(data => setTree(data))
       .catch(err => console.error('Failed to load tree:', err));
+  }, []);
+
+  // Global ? key handler for keymap guide
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger if typing in an input or editor
+      const target = e.target as HTMLElement;
+      const isTyping = target.tagName === 'INPUT' ||
+                       target.tagName === 'TEXTAREA' ||
+                       target.closest('.monaco-editor');
+
+      if (e.key === '?' && !isTyping) {
+        e.preventDefault();
+        setShowKeymapGuide(prev => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   // Load file content
@@ -125,6 +147,15 @@ function App() {
       console.error('Failed to load file:', err);
     }
   }, []);
+
+  // Load file content and focus editor (for Cmd+Enter)
+  const loadFileWithFocus = useCallback(async (path: string, name: string) => {
+    await loadFile(path, name);
+    // Small delay to ensure editor is mounted and content is loaded
+    setTimeout(() => {
+      editorRef.current?.focus();
+    }, 100);
+  }, [loadFile]);
 
   // Auto-save with debounce
   const handleContentChange = useCallback((newContent: string) => {
@@ -190,6 +221,7 @@ function App() {
             <TreeView
               tree={tree}
               onSelectFile={loadFile}
+              onSelectFileWithFocus={loadFileWithFocus}
               selectedPath={selectedPath}
             />
           </SidebarContent>
@@ -199,6 +231,7 @@ function App() {
           <EditorPane>
             {selectedPath ? (
               <Editor
+                ref={editorRef}
                 content={content}
                 onChange={handleContentChange}
                 fileName={fileName}
@@ -230,6 +263,11 @@ function App() {
       <ClaudePanel
         contextPaths={contextPaths}
         onFileChange={reloadCurrentFile}
+      />
+
+      <KeymapGuide
+        isOpen={showKeymapGuide}
+        onClose={() => setShowKeymapGuide(false)}
       />
     </AppContainer>
     </ToastProvider>

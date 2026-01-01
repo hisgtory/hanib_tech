@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import MonacoEditor from '@monaco-editor/react';
-import { useRef, useCallback, useState, useEffect } from 'react';
+import { useRef, useCallback, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import type { editor } from 'monaco-editor';
 import { useToast } from '../Toast';
 
@@ -11,6 +11,10 @@ interface EditorProps {
   onSelectionChange?: (text: string) => void;
   fileName: string;
   filePath: string;
+}
+
+export interface EditorHandle {
+  focus: () => void;
 }
 
 const Container = styled.div`
@@ -101,10 +105,19 @@ const CopyPathButton = styled.button`
   }
 `;
 
-export function Editor({ content, onChange, onSelectionChange, fileName, filePath }: EditorProps) {
+export const Editor = forwardRef<EditorHandle, EditorProps>(function Editor(
+  { content, onChange, onSelectionChange, fileName, filePath },
+  ref
+) {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const [selectedText, setSelectedText] = useState('');
   const { showToast } = useToast();
+
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      editorRef.current?.focus();
+    },
+  }), []);
 
   const handleEditorMount = useCallback((editor: editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
@@ -183,4 +196,4 @@ export function Editor({ content, onChange, onSelectionChange, fileName, filePat
       </EditorWrapper>
     </Container>
   );
-}
+});
