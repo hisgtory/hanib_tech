@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/99pcnt/hanib/pkg/content"
@@ -279,6 +280,20 @@ func findProjectRoot() string {
 	dir, _ := os.Getwd()
 	for {
 		if _, err := os.Stat(filepath.Join(dir, "CLAUDE.md")); err == nil {
+			// Check if this directory has part* folders (content root)
+			if hasPartFolders(dir) {
+				return dir
+			}
+			// Check subdirectories for content
+			entries, _ := os.ReadDir(dir)
+			for _, e := range entries {
+				if e.IsDir() {
+					subdir := filepath.Join(dir, e.Name())
+					if hasPartFolders(subdir) {
+						return subdir
+					}
+				}
+			}
 			return dir
 		}
 		parent := filepath.Dir(dir)
@@ -288,6 +303,20 @@ func findProjectRoot() string {
 		dir = parent
 	}
 	return ""
+}
+
+func hasPartFolders(dir string) bool {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return false
+	}
+	partRe := regexp.MustCompile(`^part\d+_`)
+	for _, e := range entries {
+		if e.IsDir() && partRe.MatchString(e.Name()) {
+			return true
+		}
+	}
+	return false
 }
 
 func sendSSE(w *bufio.Writer, eventType, data string) {
