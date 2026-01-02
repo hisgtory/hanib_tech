@@ -264,6 +264,74 @@ func main() {
 		return c.JSON(fiber.Map{"success": true})
 	})
 
+	// Episode merged content endpoint
+	api.Get("/episode/merged", func(c *fiber.Ctx) error {
+		path := c.Query("path")
+		if path == "" {
+			return c.Status(400).JSON(fiber.Map{"error": "path required"})
+		}
+
+		fullPath := filepath.Join(root, path)
+		if !strings.HasPrefix(fullPath, root) {
+			return c.Status(403).JSON(fiber.Map{"error": "access denied"})
+		}
+
+		// Check if path is a directory (episode)
+		info, err := os.Stat(fullPath)
+		if err != nil {
+			return c.Status(404).JSON(fiber.Map{"error": err.Error()})
+		}
+		if !info.IsDir() {
+			return c.Status(400).JSON(fiber.Map{"error": "path must be a directory"})
+		}
+
+		// Read all markdown files in order: body.md, conversation.md, yama.md, then others
+		fileOrder := []string{"body.md", "conversation.md", "yama.md"}
+		var merged strings.Builder
+		processedFiles := make(map[string]bool)
+
+		// Process files in preferred order
+		for _, filename := range fileOrder {
+			filePath := filepath.Join(fullPath, filename)
+			if data, err := os.ReadFile(filePath); err == nil {
+				if merged.Len() > 0 {
+					merged.WriteString("\n\n---\n\n")
+				}
+				merged.WriteString(fmt.Sprintf("# 📄 %s\n\n", filename))
+				merged.Write(data)
+				processedFiles[filename] = true
+			}
+		}
+
+		// Process remaining .md files
+		entries, _ := os.ReadDir(fullPath)
+		for _, entry := range entries {
+			if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".md") {
+				continue
+			}
+			if processedFiles[entry.Name()] {
+				continue
+			}
+			filePath := filepath.Join(fullPath, entry.Name())
+			if data, err := os.ReadFile(filePath); err == nil {
+				if merged.Len() > 0 {
+					merged.WriteString("\n\n---\n\n")
+				}
+				merged.WriteString(fmt.Sprintf("# 📄 %s\n\n", entry.Name()))
+				merged.Write(data)
+			}
+		}
+
+		if merged.Len() == 0 {
+			return c.Status(404).JSON(fiber.Map{"error": "no markdown files found"})
+		}
+
+		return c.JSON(fiber.Map{
+			"path":    path,
+			"content": merged.String(),
+		})
+	})
+
 	// Static files (for production)
 	app.Static("/", "./web/dist")
 

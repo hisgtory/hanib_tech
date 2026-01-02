@@ -6,6 +6,7 @@ interface TreeViewProps {
   tree: ContentTree | null;
   onSelectFile: (path: string, name: string) => void;
   onSelectFileWithFocus?: (path: string, name: string) => void;
+  onSelectEpisodeMerged?: (path: string, name: string) => void;
   selectedPath: string | null;
 }
 
@@ -101,7 +102,7 @@ function getNodeIcon(type: TreeItem['type'], filename?: string): string {
   }
 }
 
-export function TreeView({ tree, onSelectFile, onSelectFileWithFocus, selectedPath }: TreeViewProps) {
+export function TreeView({ tree, onSelectFile, onSelectFileWithFocus, onSelectEpisodeMerged, selectedPath }: TreeViewProps) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [focusedId, setFocusedId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -282,13 +283,20 @@ export function TreeView({ tree, onSelectFile, onSelectFileWithFocus, selectedPa
             } else {
               onSelectFile(currentItem.path, currentItem.displayName);
             }
+          } else if (currentItem.type === 'episode') {
+            // Cmd+Enter on episode: show merged view
+            if (e.metaKey && onSelectEpisodeMerged) {
+              onSelectEpisodeMerged(currentItem.path, currentItem.displayName);
+            } else {
+              toggleExpand(currentItem.path);
+            }
           } else if (currentItem.isExpandable) {
             toggleExpand(currentItem.path);
           }
         }
         break;
     }
-  }, [visibleItems, focusedId, expanded, toggleExpand, onSelectFile, onSelectFileWithFocus]);
+  }, [visibleItems, focusedId, expanded, toggleExpand, onSelectFile, onSelectFileWithFocus, onSelectEpisodeMerged]);
 
   // Focus container on Escape from anywhere
   useEffect(() => {
@@ -334,10 +342,20 @@ export function TreeView({ tree, onSelectFile, onSelectFileWithFocus, selectedPa
           selected={selectedPath === item.path}
           focused={focusedId === item.id}
           draggable={item.type === 'file' || item.type === 'variant-file'}
-          onClick={() => {
+          onClick={(e) => {
             setFocusedId(item.id);
             if (item.type === 'file' || item.type === 'variant-file') {
-              onSelectFile(item.path, item.displayName);
+              if (e.metaKey && onSelectFileWithFocus) {
+                onSelectFileWithFocus(item.path, item.displayName);
+              } else {
+                onSelectFile(item.path, item.displayName);
+              }
+            } else if (item.type === 'episode') {
+              if (e.metaKey && onSelectEpisodeMerged) {
+                onSelectEpisodeMerged(item.path, item.displayName);
+              } else {
+                toggleExpand(item.path);
+              }
             } else if (item.isExpandable) {
               toggleExpand(item.path);
             }

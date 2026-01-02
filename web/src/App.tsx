@@ -157,6 +157,24 @@ function App() {
     }, 100);
   }, [loadFile]);
 
+  // Load merged episode content (for Cmd+Click on episode)
+  const loadEpisodeMerged = useCallback(async (path: string, name: string) => {
+    try {
+      const res = await fetch(`${API_BASE}/api/episode/merged?path=${encodeURIComponent(path)}`);
+      const data = await res.json();
+      if (data.error) {
+        console.error('Failed to load merged episode:', data.error);
+        return;
+      }
+      setContent(data.content);
+      setSelectedPath(path);
+      setFileName(`${name} (전체 보기)`);
+      setIsDirty(false);
+    } catch (err) {
+      console.error('Failed to load merged episode:', err);
+    }
+  }, []);
+
   // Auto-save with debounce
   const handleContentChange = useCallback((newContent: string) => {
     setContent(newContent);
@@ -222,6 +240,7 @@ function App() {
               tree={tree}
               onSelectFile={loadFile}
               onSelectFileWithFocus={loadFileWithFocus}
+              onSelectEpisodeMerged={loadEpisodeMerged}
               selectedPath={selectedPath}
             />
           </SidebarContent>

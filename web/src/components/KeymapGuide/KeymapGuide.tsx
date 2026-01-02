@@ -141,6 +141,10 @@ export function KeymapGuide({ isOpen, onClose }: KeymapGuideProps) {
               <ShortcutLabel>Open file & edit</ShortcutLabel>
               <ShortcutKeys><Key>⌘</Key><Key>Enter</Key></ShortcutKeys>
             </ShortcutItem>
+            <ShortcutItem>
+              <ShortcutLabel>Episode merged view</ShortcutLabel>
+              <ShortcutKeys><Key>⌘</Key><Key>Click</Key></ShortcutKeys>
+            </ShortcutItem>
           </ShortcutList>
         </Section>
 
