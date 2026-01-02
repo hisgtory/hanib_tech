@@ -300,7 +300,7 @@ function App() {
 
         <EditorPreviewContainer>
           <EditorPane>
-            {selectedPath ? (
+            {selectedPath || content ? (
               <Editor
                 ref={editorRef}
                 content={content}
@@ -317,7 +317,7 @@ function App() {
           </EditorPane>
 
           <PreviewPane>
-            {selectedPath ? (
+            {selectedPath || content ? (
               <Preview content={content} />
             ) : (
               <Placeholder>
