@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { TreeView } from './components/TreeView/TreeView';
 import { Editor, type EditorHandle } from './components/Editor/Editor';
 import { Preview } from './components/Preview/Preview';
@@ -127,14 +128,25 @@ const Placeholder = styled.div`
 const API_BASE = '';
 
 function App() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [tree, setTree] = useState<ContentTree | null>(null);
-  const [selectedPath, setSelectedPath] = useState<string | null>(null);
   const [fileName, setFileName] = useState('');
   const [content, setContent] = useState('');
   const [isDirty, setIsDirty] = useState(false);
   const [showKeymapGuide, setShowKeymapGuide] = useState(false);
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const editorRef = useRef<EditorHandle>(null);
+
+  // Derive current path from URL
+  const currentPath = location.pathname === '/' || location.pathname === '/all-preview'
+    ? null
+    : decodeURIComponent(location.pathname.slice(1)); // Remove leading /
+
+  const isAllPreview = location.pathname === '/all-preview';
+  const searchParams = new URLSearchParams(location.search);
+  const isMergedView = searchParams.get('merged') === 'true';
 
   // Load tree
   useEffect(() => {
@@ -143,6 +155,51 @@ function App() {
       .then(data => setTree(data))
       .catch(err => console.error('Failed to load tree:', err));
   }, []);
+
+  // Load content based on URL
+  useEffect(() => {
+    if (isAllPreview) {
+      // Load full book
+      fetch(`${API_BASE}/api/book/merged`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.error) {
+            setContent(data.content);
+            setFileName('📚 전체 책 보기');
+            setIsDirty(false);
+          }
+        })
+        .catch(err => console.error('Failed to load merged book:', err));
+    } else if (currentPath && isMergedView) {
+      // Load merged episode view
+      fetch(`${API_BASE}/api/episode/merged?path=${encodeURIComponent(currentPath)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.error) {
+            setContent(data.content);
+            setFileName(`${currentPath.split('/').pop()} (전체 보기)`);
+            setIsDirty(false);
+          }
+        })
+        .catch(err => console.error('Failed to load merged episode:', err));
+    } else if (currentPath) {
+      // Load specific file
+      fetch(`${API_BASE}/api/file?path=${encodeURIComponent(currentPath)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.error) {
+            setContent(data.content);
+            setFileName(currentPath.split('/').pop() || '');
+            setIsDirty(false);
+          }
+        })
+        .catch(err => console.error('Failed to load file:', err));
+    } else {
+      // Home - clear content
+      setContent('');
+      setFileName('');
+    }
+  }, [currentPath, isAllPreview, isMergedView]);
 
   // Global ? key handler for keymap guide
   useEffect(() => {
@@ -163,66 +220,32 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Load file content
-  const loadFile = useCallback(async (path: string, name: string) => {
-    try {
-      const res = await fetch(`${API_BASE}/api/file?path=${encodeURIComponent(path)}`);
-      const data = await res.json();
-      setContent(data.content);
-      setSelectedPath(path);
-      setFileName(name);
-      setIsDirty(false);
-    } catch (err) {
-      console.error('Failed to load file:', err);
-    }
-  }, []);
+  // Navigate to file (replaces loadFile)
+  const selectFile = useCallback((path: string, _name: string) => {
+    navigate(`/${encodeURIComponent(path)}`);
+  }, [navigate]);
 
-  // Load file content and focus editor (for Cmd+Enter)
-  const loadFileWithFocus = useCallback(async (path: string, name: string) => {
-    await loadFile(path, name);
+  // Navigate to file and focus editor (for Cmd+Enter)
+  const selectFileWithFocus = useCallback((path: string, _name: string) => {
+    navigate(`/${encodeURIComponent(path)}`);
     // Small delay to ensure editor is mounted and content is loaded
     setTimeout(() => {
       editorRef.current?.focus();
     }, 100);
-  }, [loadFile]);
+  }, [navigate]);
 
-  // Load merged episode content (for Cmd+Click on episode)
-  const loadEpisodeMerged = useCallback(async (path: string, name: string) => {
-    try {
-      const res = await fetch(`${API_BASE}/api/episode/merged?path=${encodeURIComponent(path)}`);
-      const data = await res.json();
-      if (data.error) {
-        console.error('Failed to load merged episode:', data.error);
-        return;
-      }
-      setContent(data.content);
-      setSelectedPath(path);
-      setFileName(`${name} (전체 보기)`);
-      setIsDirty(false);
-    } catch (err) {
-      console.error('Failed to load merged episode:', err);
-    }
-  }, []);
+  // Navigate to episode merged view (for Cmd+Click on episode)
+  const selectEpisodeMerged = useCallback((path: string, _name: string) => {
+    // Episode merged view - use query param to indicate merged
+    navigate(`/${encodeURIComponent(path)}?merged=true`);
+  }, [navigate]);
 
-  // Load full book merged content
-  const loadBookMerged = useCallback(async () => {
-    try {
-      const res = await fetch(`${API_BASE}/api/book/merged`);
-      const data = await res.json();
-      if (data.error) {
-        console.error('Failed to load merged book:', data.error);
-        return;
-      }
-      setContent(data.content);
-      setSelectedPath(null);
-      setFileName('📚 전체 책 보기');
-      setIsDirty(false);
-    } catch (err) {
-      console.error('Failed to load merged book:', err);
-    }
-  }, []);
+  // Navigate to full book view
+  const goToAllPreview = useCallback(() => {
+    navigate('/all-preview');
+  }, [navigate]);
 
-  // Auto-save with debounce
+  // Auto-save with debounce (only for single file view, not merged views)
   const handleContentChange = useCallback((newContent: string) => {
     setContent(newContent);
     setIsDirty(true);
@@ -232,15 +255,15 @@ function App() {
       clearTimeout(saveTimeoutRef.current);
     }
 
-    // Set new timeout for auto-save
+    // Set new timeout for auto-save (only for regular file view)
     saveTimeoutRef.current = setTimeout(async () => {
-      if (selectedPath) {
+      if (currentPath && !isMergedView && !isAllPreview) {
         try {
           await fetch(`${API_BASE}/api/file`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              path: selectedPath,
+              path: currentPath,
               content: newContent,
             }),
           });
@@ -250,13 +273,13 @@ function App() {
         }
       }
     }, 1000); // Save after 1 second of no typing
-  }, [selectedPath]);
+  }, [currentPath, isMergedView, isAllPreview]);
 
   // Reload current file (for when Claude modifies it)
   const reloadCurrentFile = useCallback(async () => {
-    if (selectedPath) {
+    if (currentPath && !isMergedView && !isAllPreview) {
       try {
-        const res = await fetch(`${API_BASE}/api/file?path=${encodeURIComponent(selectedPath)}`);
+        const res = await fetch(`${API_BASE}/api/file?path=${encodeURIComponent(currentPath)}`);
         const data = await res.json();
         setContent(data.content);
         setIsDirty(false);
@@ -264,10 +287,10 @@ function App() {
         console.error('Failed to reload file:', err);
       }
     }
-  }, [selectedPath]);
+  }, [currentPath, isMergedView, isAllPreview]);
 
   // Context paths for Claude (currently selected file)
-  const contextPaths = selectedPath ? [selectedPath] : [];
+  const contextPaths = currentPath ? [currentPath] : [];
 
   return (
     <ToastProvider>
@@ -278,7 +301,7 @@ function App() {
           {isDirty && <span style={{ color: '#ff9800' }}>•</span>}
         </Logo>
         <HeaderActions>
-          <HeaderButton onClick={loadBookMerged}>
+          <HeaderButton onClick={goToAllPreview}>
             📖 전체 보기
           </HeaderButton>
         </HeaderActions>
@@ -290,23 +313,23 @@ function App() {
           <SidebarContent>
             <TreeView
               tree={tree}
-              onSelectFile={loadFile}
-              onSelectFileWithFocus={loadFileWithFocus}
-              onSelectEpisodeMerged={loadEpisodeMerged}
-              selectedPath={selectedPath}
+              onSelectFile={selectFile}
+              onSelectFileWithFocus={selectFileWithFocus}
+              onSelectEpisodeMerged={selectEpisodeMerged}
+              selectedPath={currentPath}
             />
           </SidebarContent>
         </Sidebar>
 
         <EditorPreviewContainer>
           <EditorPane>
-            {selectedPath || content ? (
+            {currentPath || content ? (
               <Editor
                 ref={editorRef}
                 content={content}
                 onChange={handleContentChange}
                 fileName={fileName}
-                filePath={selectedPath || ''}
+                filePath={currentPath || ''}
               />
             ) : (
               <Placeholder>
@@ -317,7 +340,7 @@ function App() {
           </EditorPane>
 
           <PreviewPane>
-            {selectedPath || content ? (
+            {currentPath || content ? (
               <Preview content={content} />
             ) : (
               <Placeholder>
@@ -329,7 +352,7 @@ function App() {
         </EditorPreviewContainer>
       </MainContent>
 
-      <GitPanel onSelectFile={loadFile} />
+      <GitPanel onSelectFile={selectFile} />
 
       <ClaudePanel
         contextPaths={contextPaths}
