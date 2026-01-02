@@ -20,4 +20,6 @@ Thumbs.db
 
 # Logs
 *.log
-server
+
+# Binary
+/server

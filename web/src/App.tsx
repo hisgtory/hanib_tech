@@ -34,6 +34,35 @@ const Logo = styled.div`
   gap: 8px;
 `;
 
+const HeaderActions = styled.div`
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+`;
+
+const HeaderButton = styled.button`
+  background: #0078d4;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    background: #1a86d9;
+  }
+
+  &:disabled {
+    background: #555;
+    cursor: not-allowed;
+  }
+`;
+
 const MainContent = styled.main`
   flex: 1;
   display: flex;
@@ -175,6 +204,24 @@ function App() {
     }
   }, []);
 
+  // Load full book merged content
+  const loadBookMerged = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/book/merged`);
+      const data = await res.json();
+      if (data.error) {
+        console.error('Failed to load merged book:', data.error);
+        return;
+      }
+      setContent(data.content);
+      setSelectedPath(null);
+      setFileName('📚 전체 책 보기');
+      setIsDirty(false);
+    } catch (err) {
+      console.error('Failed to load merged book:', err);
+    }
+  }, []);
+
   // Auto-save with debounce
   const handleContentChange = useCallback((newContent: string) => {
     setContent(newContent);
@@ -230,6 +277,11 @@ function App() {
           📚 Hanib Editor
           {isDirty && <span style={{ color: '#ff9800' }}>•</span>}
         </Logo>
+        <HeaderActions>
+          <HeaderButton onClick={loadBookMerged}>
+            📖 전체 보기
+          </HeaderButton>
+        </HeaderActions>
       </Header>
 
       <MainContent>

@@ -264,6 +264,64 @@ func main() {
 		return c.JSON(fiber.Map{"success": true})
 	})
 
+	// Full book merged content endpoint
+	api.Get("/book/merged", func(c *fiber.Ctx) error {
+		tree, err := content.LoadTree(root)
+		if err != nil {
+			return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+		}
+
+		var merged strings.Builder
+		fileOrder := []string{"body.md", "conversation.md", "yama.md"}
+
+		for _, part := range tree.Parts {
+			merged.WriteString(fmt.Sprintf("\n\n# 📖 %s\n\n", part.Title))
+
+			for _, week := range part.Weeks {
+				merged.WriteString(fmt.Sprintf("\n\n## 📅 %s\n\n", week.Title))
+
+				for _, episode := range week.Episodes {
+					merged.WriteString(fmt.Sprintf("\n\n### 📝 %s\n\n", episode.Title))
+
+					epPath := filepath.Join(root, part.Path, week.Path, episode.Path)
+					processedFiles := make(map[string]bool)
+
+					// Process files in preferred order
+					for _, filename := range fileOrder {
+						filePath := filepath.Join(epPath, filename)
+						if data, err := os.ReadFile(filePath); err == nil {
+							merged.WriteString(fmt.Sprintf("\n#### 📄 %s\n\n", filename))
+							merged.Write(data)
+							merged.WriteString("\n")
+							processedFiles[filename] = true
+						}
+					}
+
+					// Process remaining .md files
+					entries, _ := os.ReadDir(epPath)
+					for _, entry := range entries {
+						if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".md") {
+							continue
+						}
+						if processedFiles[entry.Name()] {
+							continue
+						}
+						filePath := filepath.Join(epPath, entry.Name())
+						if data, err := os.ReadFile(filePath); err == nil {
+							merged.WriteString(fmt.Sprintf("\n#### 📄 %s\n\n", entry.Name()))
+							merged.Write(data)
+							merged.WriteString("\n")
+						}
+					}
+				}
+			}
+		}
+
+		return c.JSON(fiber.Map{
+			"content": merged.String(),
+		})
+	})
+
 	// Episode merged content endpoint
 	api.Get("/episode/merged", func(c *fiber.Ctx) error {
 		path := c.Query("path")
