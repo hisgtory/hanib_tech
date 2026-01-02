@@ -54,3 +54,13 @@ export interface SelectedFile {
   content: string;
   name: string;
 }
+
+// Book file for virtualized view
+export interface BookFile {
+  path: string;
+  fileName: string;
+  title: string;
+  part: string;
+  week: string;
+  episode: string;
+}

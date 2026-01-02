@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { TreeView } from './components/TreeView/TreeView';
 import { Editor, type EditorHandle } from './components/Editor/Editor';
+import { VirtualizedBookView } from './components/Editor/VirtualizedBookView';
 import { Preview } from './components/Preview/Preview';
 import { ClaudePanel } from './components/Claude/ClaudePanel';
 import { GitPanel } from './components/GitPanel/GitPanel';
@@ -322,33 +323,39 @@ function App() {
         </Sidebar>
 
         <EditorPreviewContainer>
-          <EditorPane>
-            {currentPath || content ? (
-              <Editor
-                ref={editorRef}
-                content={content}
-                onChange={handleContentChange}
-                fileName={fileName}
-                filePath={currentPath || ''}
-              />
-            ) : (
-              <Placeholder>
-                <div className="icon">📄</div>
-                <div>왼쪽 트리에서 파일을 선택하세요</div>
-              </Placeholder>
-            )}
-          </EditorPane>
+          {isAllPreview ? (
+            <VirtualizedBookView />
+          ) : (
+            <>
+              <EditorPane>
+                {currentPath || content ? (
+                  <Editor
+                    ref={editorRef}
+                    content={content}
+                    onChange={handleContentChange}
+                    fileName={fileName}
+                    filePath={currentPath || ''}
+                  />
+                ) : (
+                  <Placeholder>
+                    <div className="icon">📄</div>
+                    <div>왼쪽 트리에서 파일을 선택하세요</div>
+                  </Placeholder>
+                )}
+              </EditorPane>
 
-          <PreviewPane>
-            {currentPath || content ? (
-              <Preview content={content} />
-            ) : (
-              <Placeholder>
-                <div className="icon">👁️</div>
-                <div>프리뷰가 여기에 표시됩니다</div>
-              </Placeholder>
-            )}
-          </PreviewPane>
+              <PreviewPane>
+                {currentPath || content ? (
+                  <Preview content={content} />
+                ) : (
+                  <Placeholder>
+                    <div className="icon">👁️</div>
+                    <div>프리뷰가 여기에 표시됩니다</div>
+                  </Placeholder>
+                )}
+              </PreviewPane>
+            </>
+          )}
         </EditorPreviewContainer>
       </MainContent>
 

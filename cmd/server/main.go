@@ -264,6 +264,75 @@ func main() {
 		return c.JSON(fiber.Map{"success": true})
 	})
 
+	// Book files list endpoint (for virtualized editor view)
+	api.Get("/book/files", func(c *fiber.Ctx) error {
+		tree, err := content.LoadTree(root)
+		if err != nil {
+			return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+		}
+
+		type BookFile struct {
+			Path     string `json:"path"`
+			FileName string `json:"fileName"`
+			Title    string `json:"title"`
+			Part     string `json:"part"`
+			Week     string `json:"week"`
+			Episode  string `json:"episode"`
+		}
+
+		var files []BookFile
+		fileOrder := []string{"body.md", "conversation.md", "yama.md"}
+
+		for _, part := range tree.Parts {
+			for _, week := range part.Weeks {
+				for _, episode := range week.Episodes {
+					epPath := filepath.Join(root, part.Path, week.Path, episode.Path)
+					relEpPath := filepath.Join(part.Path, week.Path, episode.Path)
+					processedFiles := make(map[string]bool)
+
+					// Process files in preferred order
+					for _, filename := range fileOrder {
+						filePath := filepath.Join(epPath, filename)
+						if _, err := os.Stat(filePath); err == nil {
+							files = append(files, BookFile{
+								Path:     filepath.Join(relEpPath, filename),
+								FileName: filename,
+								Title:    fmt.Sprintf("%s > %s > %s", part.Title, week.Title, episode.Title),
+								Part:     part.Title,
+								Week:     week.Title,
+								Episode:  episode.Title,
+							})
+							processedFiles[filename] = true
+						}
+					}
+
+					// Process remaining .md files
+					entries, _ := os.ReadDir(epPath)
+					for _, entry := range entries {
+						if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".md") {
+							continue
+						}
+						if processedFiles[entry.Name()] {
+							continue
+						}
+						files = append(files, BookFile{
+							Path:     filepath.Join(relEpPath, entry.Name()),
+							FileName: entry.Name(),
+							Title:    fmt.Sprintf("%s > %s > %s", part.Title, week.Title, episode.Title),
+							Part:     part.Title,
+							Week:     week.Title,
+							Episode:  episode.Title,
+						})
+					}
+				}
+			}
+		}
+
+		return c.JSON(fiber.Map{
+			"files": files,
+		})
+	})
+
 	// Full book merged content endpoint
 	api.Get("/book/merged", func(c *fiber.Ctx) error {
 		tree, err := content.LoadTree(root)
