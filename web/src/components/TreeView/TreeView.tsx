@@ -316,6 +316,38 @@ export function TreeView({ tree, onSelectFile, onSelectFileWithFocus, onSelectEp
     }
   }, [focusedId]);
 
+  // Auto-expand to selectedPath when page loads or URL changes
+  useEffect(() => {
+    if (!selectedPath || !tree) return;
+
+    // Parse path to get all parent paths that need to be expanded
+    const parts = selectedPath.split('/');
+    const pathsToExpand: string[] = [];
+
+    // Build parent paths: part01, part01/week01, part01/week01/ep01, etc.
+    // Don't include the file itself (last segment for files)
+    for (let i = 1; i <= parts.length - 1; i++) {
+      const parentPath = parts.slice(0, i).join('/');
+      if (parentPath) {
+        pathsToExpand.push(parentPath);
+      }
+    }
+
+    // Add all parent paths to expanded set
+    if (pathsToExpand.length > 0) {
+      setExpanded(prev => {
+        const next = new Set(prev);
+        pathsToExpand.forEach(p => next.add(p));
+        return next;
+      });
+
+      // Scroll selected item into view after expansion (small delay for DOM update)
+      setTimeout(() => {
+        itemRefs.current.get(selectedPath)?.scrollIntoView({ block: 'center' });
+      }, 50);
+    }
+  }, [selectedPath, tree]);
+
   if (!tree) {
     return <Container>Loading...</Container>;
   }
